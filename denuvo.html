@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D加密游戏分区 - Gaem及时雨游戏库</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+        body {
+            background-color: #f7f9fc;
+            color: #333;
+        }
+        .header-bar{
+            background: linear-gradient(90deg,#b726d8,#3088ff);
+            padding:16px 20px;
+        }
+        .back-home{
+            color:#fff;
+            text-decoration:none;
+            font-size:16px;
+        }
+        .back-home:hover{
+            text-decoration:underline;
+        }
+        .container {
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .page-title{
+            font-size:26px;
+            margin-bottom:30px;
+            border-left:5px solid #b827d9;
+            padding-left:14px;
+        }
+        .game-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+            gap: 24px;
+        }
+        .game-card {
+            display:block;
+            text-decoration:none;
+            color:inherit;
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.07);
+            transition: transform 0.25s ease, box-shadow 0.25s;
+        }
+        .game-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 8px 24px rgba(183, 38, 216, 0.16);
+        }
+        .game-card .pic {
+            height: 140px;
+            background: linear-gradient(135deg, #e0e7ff, #c7d2fe);
+        }
+        .game-card .info {
+            padding: 14px;
+        }
+        .game-card h3 {
+            font-size: 15px;
+            margin-bottom: 6px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .game-card p {
+            font-size: 13px;
+            color: #777;
+        }
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #888;
+            font-size: 14px;
+        }
+        @media (max-width: 768px) {
+            .game-list {
+                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+                gap: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header-bar">
+        <a href="index.html" class="back-home">← 返回首页</a>
+    </div>
+    <div class="container">
+        <h2 class="page-title">🎯 D加密游戏分区 · 需设置虚拟机</h2>
+        <div class="game-list">
+            <!-- 所有D加密游戏全部放这里，以后新增直接复制卡片 -->
+            <a href="wildlands.html" target="_blank" class="game-card">
+                <div class="pic">
+                    <img src="img/01.jpg" alt="幽灵行动：荒野" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                <div class="info">
+                    <h3>幽灵行动：荒野</h3>
+                    <p>D加密 · Denuvo</p>
+                </div>
+            </a>
+            <a href="dragon2.html" target="_blank" class="game-card">
+                <div class="pic">
+                    <img src="img/02.jpg" alt="龙之信条2" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                <div class="info">
+                    <h3>龙之信条2</h3>
+                    <p>D加密 · Denuvo</p>
+                </div>
+            </a>
+            <a href="mhwilds.html" target="_blank" class="game-card">
+                <div class="pic">
+                    <img src="img/03.jpg" alt="怪物猎人：荒野" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                <div class="info">
+                    <h3>怪物猎人：荒野</h3>
+                    <p>D加密 · Denuvo</p>
+                </div>
+            </a>
+            <a href="border4.html" target="_blank" class="game-card">
+                <div class="pic">
+                    <img src="img/04.jpg" alt="无主之地4" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                <div class="info">
+                    <h3>无主之地4</h3>
+                    <p>D加密 · Denuvo</p>
+                </div>
+            </a>
+
+            <!-- ==== 下面是新增全部游戏 ==== -->
+<a href="p3r.html" target="_blank" class="game-card">
+    <div class="pic">
+        <img src="img/Denuvo/01.jpg" alt="女神异闻录3：Reload" style="width:100%;height:100%;object-fit:cover;">
+    </div>
+    <div class="info">
+        <h3>女神异闻录3：Reload</h3>
+        <p>D加密 · Denuvo</p>
+    </div>
+</a>
+<a href="yakuza3.html" target="_blank" class="game-card">
+    <div class="pic">
+        <img src="img/Denuvo/02.jpg" alt="人中之龙：极３/人中之龙３" style="width:100%;height:100%;object-fit:cover;">
+    </div>
+    <div class="info">
+        <h3>人中之龙：极３/人中之龙３</h3>
+        <p>D加密 · Denuvo</p>
+    </div>
+</a>
+<a href="jwe3.html" target="_blank" class="game-card">
+    <div class="pic">
+        <img src="img/Denuvo/03.jpg" alt="侏罗纪世界：进化3" style="width:100%;height:100%;object-fit:cover;">
+    </div>
+    <div class="info">
+        <h3>侏罗纪世界：进化3</h3>
+        <p>D加密 · Denuvo</p>
+    </div>
+</a>
+<a href="mhstories3.html" target="_blank" class="game-card">
+    <div class="pic">
+        <img src="img/Denuvo/04.jpg" alt="怪物猎人物语3：命运双龙" style="width:100%;height:100%;object-fit:cover;">
+    </div>
+    <div class="info">
+        <h3>怪物猎人物语3：命运双龙</h3>
+        <p>D加密 · Denuvo</p>
+    </div>
+</a>
+<a href="yakuza8.html" target="_blank" class="game-card">
+    <div class="pic">
+        <img src="img/Denuvo/05.jpg" alt="人中之龙8" style="width:100%;height:100%;object-fit:cover;">
+    </div>
+    <div class="info">
+        <h3>人中之龙8</h3>
+        <p>D加密 · Denuvo</p>
+    </div>
+</a>
+<a href="sniperelite_resistance.html" target="_blank" class="game-card">
+    <div class="pic">
+        <img src="img/Denuvo/06.jpg" alt="狙击精英：抵抗" style="width:100%;height:100%;object-fit:cover;">
+    </div>
+    <div class="info">
+        <h3>狙击精英：抵抗</h3>
+        <p>D加密 · Denuvo</p>
+    </div>
+</a>
+<a href="p4g.html" target="_blank" class="game-card">
+    <div class="pic">
+        <img src="img/Denuvo/07.jpg" alt="女神异闻录４：黄金版" style="width:100%;height:100%;object-fit:cover;">
+    </div>
+    <div class="info">
+        <h3>女神异闻录４：黄金版</h3>
+        <p>D加密 · Denuvo</p>
+    </div>
+</a>
+<a href="nba2k26.html" target="_blank" class="game-card">
+    <div class="pic">
+        <img src="img/Denuvo/08.jpg" alt="NBA 2K26" style="width:100%;height:100%;object-fit:cover;">
+    </div>
+    <div class="info">
+        <h3>NBA 2K26</h3>
+        <p>D加密 · Denuvo</p>
+    </div>
+</a>
+<a href="soulhackers2.html" target="_blank" class="game-card">
+    <div class="pic">
+        <img src="img/Denuvo/09.jpg" alt="灵魂骇客2" style="width:100%;height:100%;object-fit:cover;">
+    </div>
+    <div class="info">
+        <h3>灵魂骇客2</h3>
+        <p>D加密 · Denuvo</p>
+    </div>
+</a>
+<a href="sonicorigins.html" target="_blank" class="game-card">
+    <div class="pic">
+        <img src="img/Denuvo/10.jpg" alt="索尼克：起源" style="width:100%;height:100%;object-fit:cover;">
+    </div>
+    <div class="info">
+        <h3>索尼克：起源</h3>
+        <p>D加密 · Denuvo</p>
+    </div>
+</a>
+<a href="farchangingtides.html" target="_blank" class="game-card">
+    <div class="pic">
+        <img src="img/Denuvo/11.jpg" alt="远方：涌变暗潮" style="width:100%;height:100%;object-fit:cover;">
+    </div>
+    <div class="info">
+        <h3>远方：涌变暗潮</h3>
+        <p>D加密 · Denuvo</p>
+    </div>
+</a>
+<a href="divamega39s.html" target="_blank" class="game-card">
+    <div class="pic">
+        <img src="img/Denuvo/12.jpg" alt="初音未来 Project DIVA MEGA39’s＋" style="width:100%;height:100%;object-fit:cover;">
+    </div>
+    <div class="info">
+        <h3>初音未来 Project DIVA MEGA39’s＋</h3>
+        <p>D加密 · Denuvo</p>
+    </div>
+</a>
+<a href="demonslayer2.html" target="_blank" class="game-card">
+    <div class="pic">
+        <img src="img/Denuvo/13.jpg" alt="鬼灭之刃：火之神血风谭2" style="width:100%;height:100%;object-fit:cover;">
+    </div>
+    <div class="info">
+        <h3>鬼灭之刃：火之神血风谭2</h3>
+        <p>D加密 · Denuvo</p>
+    </div>
+</a>
+<a href="demonslayer1.html" target="_blank" class="game-card">
+    <div class="pic">
+        <img src="img/Denuvo/14.jpg" alt="鬼灭之刃：火之神血风谭" style="width:100%;height:100%;object-fit:cover;">
+    </div>
+    <div class="info">
+        <h3>鬼灭之刃：火之神血风谭</h3>
+        <p>D加密 · Denuvo</p>
+    </div>
+</a>
+<a href="sonicsupersstars.html" target="_blank" class="game-card">
+    <div class="pic">
+        <img src="img/Denuvo/15.jpg" alt="索尼克：超级巨星" style="width:100%;height:100%;object-fit:cover;">
+    </div>
+    <div class="info">
+        <h3>索尼克：超级巨星</h3>
+        <p>D加密 · Denuvo</p>
+    </div>
+</a>
+<a href="f125.html" target="_blank" class="game-card">
+    <div class="pic">
+        <img src="img/Denuvo/16.jpg" alt="F1 25" style="width:100%;height:100%;object-fit:cover;">
+    </div>
+    <div class="info">
+        <h3>F1 25</h3>
+        <p>D加密 · Denuvo</p>
+    </div>
+</a>
+            <!-- 后续新增游戏粘贴在此处 -->
+        </div>
+    </div>
+    <footer>
+        © 2026 Gaem及时雨游戏库 All Rights Reserved
+    </footer>
+</body>
+</html>
