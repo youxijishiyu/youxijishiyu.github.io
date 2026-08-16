@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>热门游戏分区 - Gaem及时雨游戏库</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+        body {
+            background-color: #f7f9fc;
+            color: #333;
+        }
+        .header-bar{
+            background: linear-gradient(90deg,#b726d8,#3088ff);
+            padding:16px 20px;
+        }
+        .back-home{
+            color:#fff;
+            text-decoration:none;
+            font-size:16px;
+        }
+        .back-home:hover{
+            text-decoration:underline;
+        }
+        .container {
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .page-title{
+            font-size:26px;
+            margin-bottom:30px;
+            border-left:5px solid #b827d9;
+            padding-left:14px;
+        }
+        .game-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+            gap: 24px;
+        }
+        .game-card {
+            display:block;
+            text-decoration:none;
+            color:inherit;
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.07);
+            transition: transform 0.25s ease, box-shadow 0.25s;
+        }
+        .game-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 8px 24px rgba(183, 38, 216, 0.16);
+        }
+        .game-card .pic {
+            height: 140px;
+            background: linear-gradient(135deg, #e0e7ff, #c7d2fe);
+        }
+        .game-card .info {
+            padding: 14px;
+        }
+        .game-card h3 {
+            font-size: 15px;
+            margin-bottom: 6px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .game-card p {
+            font-size: 13px;
+            color: #777;
+        }
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #888;
+            font-size: 14px;
+        }
+        @media (max-width: 768px) {
+            .game-list {
+                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+                gap: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header-bar">
+        <a href="index.html" class="back-home">← 返回首页</a>
+    </div>
+    <div class="container">
+        <h2 class="page-title">🔥 热门游戏分区</h2>
+        <div class="game-list">
+            <!-- 首页四款原有封面保留img/05~08 -->
+            <a href="wukong.html" target="_blank" class="game-card">
+                <div class="pic">
+                    <img src="img/05.jpg" alt="黑神话：悟空" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                <div class="info">
+                    <h3>黑神话：悟空</h3>
+                    <p>近期高人气</p>
+                </div>
+            </a>
+            <a href="reddesert.html" target="_blank" class="game-card">
+                <div class="pic">
+                    <img src="img/06.jpg" alt="红色沙漠" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                <div class="info">
+                    <h3>红色沙漠</h3>
+                    <p>近期高人气</p>
+                </div>
+            </a>
+            <a href="avatar.html" target="_blank" class="game-card">
+                <div class="pic">
+                    <img src="img/07.jpg" alt="阿凡达：潘多拉边境" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                <div class="info">
+                    <h3>阿凡达：潘多拉边境</h3>
+                    <p>近期高人气</p>
+                </div>
+            </a>
+            <a href="acshadow.html" target="_blank" class="game-card">
+                <div class="pic">
+                    <img src="img/08.jpg" alt="刺客信条：影" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                <div class="info">
+                    <h3>刺客信条：影</h3>
+                    <p>近期高人气</p>
+                </div>
+            </a>
+
+            <!-- 新增游戏 从img/hot/01.jpg开始顺序排列 -->
+            <a href="acblackflag.html" target="_blank" class="game-card">
+                <div class="pic">
+                    <img src="img/hot/01.jpg" alt="刺客信条：黑旗 记忆重置" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                <div class="info">
+                    <h3>刺客信条：黑旗 记忆重置</h3>
+                    <p>开放世界大作</p>
+                </div>
+            </a>
+            <a href="beastcycle.html" target="_blank" class="game-card">
+                <div class="pic">
+                    <img src="img/hot/02.jpg" alt="轮回之兽" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                <div class="info">
+                    <h3>轮回之兽</h3>
+                    <p>奇幻生存</p>
+                </div>
+            </a>
+            <a href="palworld.html" target="_blank" class="game-card">
+                <div class="pic">
+                    <img src="img/hot/03.jpg" alt="幻兽帕鲁" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                <div class="info">
+                    <h3>幻兽帕鲁</h3>
+                    <p>爆款生存建造</p>
+                </div>
+            </a>
+            <a href="fh6.html" target="_blank" class="game-card">
+                <div class="pic">
+                    <img src="img/hot/04.jpg" alt="极限竞速：地平线6" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                <div class="info">
+                    <h3>极限竞速：地平线6</h3>
+                    <p>竞速热门</p>
+                </div>
+            </a>
+            <a href="re9.html" target="_blank" class="game-card">
+                <div class="pic">
+                    <img src="img/hot/05.jpg" alt="生化危机9：安魂曲" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                <div class="info">
+                    <h3>生化危机9：安魂曲</h3>
+                    <p>恐怖生存</p>
+                </div>
+            </a>
+            <a href="pragmata.html" target="_blank" class="game-card">
+                <div class="pic">
+                    <img src="img/hot/06.jpg" alt="识质存在PRAGMATA" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                <div class="info">
+                    <h3>识质存在PRAGMATA</h3>
+                    <p>科幻动作</p>
+                </div>
+            </a>
+            <a href="nioh3.html" target="_blank" class="game-card">
+                <div class="pic">
+                    <img src="img/hot/07.jpg" alt="仁王3" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                <div class="info">
+                    <h3>仁王3</h3>
+                    <p>硬核动作</p>
+                </div>
+            </a>
+            <a href="zeroredbutterfly.html" target="_blank" class="game-card">
+                <div class="pic">
+                    <img src="img/hot/08.jpg" alt="零：红蝶 重制版" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                <div class="info">
+                    <h3>零：红蝶 重制版</h3>
+                    <p>和风恐怖</p>
+                </div>
+            </a>
+            <a href="spiderman2.html" target="_blank" class="game-card">
+                <div class="pic">
+                    <img src="img/hot/09.jpg" alt="漫威蜘蛛侠2" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                <div class="info">
+                    <h3>漫威蜘蛛侠2</h3>
+                    <p>超级英雄</p>
+                </div>
+            </a>
+            <a href="re4remake.html" target="_blank" class="game-card">
+                <div class="pic">
+                    <img src="img/hot/10.jpg" alt="生化危机4：重制版" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                <div class="info">
+                    <h3>生化危机4：重制版</h3>
+                    <p>经典重制</p>
+                </div>
+            </a>
+            <a href="godofwar5.html" target="_blank" class="game-card">
+                <div class="pic">
+                    <img src="img/hot/11.jpg" alt="战神5：诸神黄昏" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                <div class="info">
+                    <h3>战神5：诸神黄昏</h3>
+                    <p>3A动作大作</p>
+                </div>
+            </a>
+            <a href="tlou2remake.html" target="_blank" class="game-card">
+                <div class="pic">
+                    <img src="img/hot/12.jpg" alt="最后生还者2：重制版" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                <div class="info">
+                    <h3>最后生还者2：重制版</h3>
+                    <p>叙事神作</p>
+                </div>
+            </a>
+            <a href="tsushimadirector.html" target="_blank" class="game-card">
+                <div class="pic">
+                    <img src="img/hot/13.jpg" alt="对马岛之魂：导演剪辑版" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                <div class="info">
+                    <h3>对马岛之魂：导演剪辑版</h3>
+                    <p>和风开放世界</p>
+                </div>
+            </a>
+            <a href="metaphorrefantazio.html" target="_blank" class="game-card">
+                <div class="pic">
+                    <img src="img/hot/14.jpg" alt="暗喻幻想：ReFantazio" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                <div class="info">
+                    <h3>暗喻幻想：ReFantazio</h3>
+                    <p>JRPG巅峰</p>
+                </div>
+            </a>
+            <a href="lordsofmanor.html" target="_blank" class="game-card">
+                <div class="pic">
+                    <img src="img/hot/15.jpg" alt="庄园领主" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                <div class="info">
+                    <h3>庄园领主</h3>
+                    <p>城建策略</p>
+                </div>
+            </a>
+            <a href="horizonwestcomplete.html" target="_blank" class="game-card">
+                <div class="pic">
+                    <img src="img/hot/16.jpg" alt="地平线：西之绝境 完整版" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                <div class="info">
+                    <h3>地平线：西之绝境 完整版</h3>
+                    <p>科幻开放世界</p>
+                </div>
+            </a>
+            <a href="callistoprotocol.html" target="_blank" class="game-card">
+                <div class="pic">
+                    <img src="img/hot/17.jpg" alt="木卫四协议" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                <div class="info">
+                    <h3>木卫四协议</h3>
+                    <p>太空恐怖</p>
+                </div>
+            </a>
+            <a href="liesofp.html" target="_blank" class="game-card">
+                <div class="pic">
+                    <img src="img/hot/18.jpg" alt="匹诺曹的谎言" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                <div class="info">
+                    <h3>匹诺曹的谎言</h3>
+                    <p>类魂动作</p>
+                </div>
+            </a>
+            <a href="deathstranding2.html" target="_blank" class="game-card">
+                <div class="pic">
+                    <img src="img/hot/19.jpg" alt="死亡搁浅2：冥滩之上" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                <div class="info">
+                    <h3>死亡搁浅2：冥滩之上</h3>
+                    <p>叙事冒险</p>
+                </div>
+            </a>
+            <a href="alanwake2.html" target="_blank" class="game-card">
+                <div class="pic">
+                    <img src="img/hot/20.jpg" alt="心灵杀手2" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                <div class="info">
+                    <h3>心灵杀手2</h3>
+                    <p>悬疑恐怖</p>
+                </div>
+            </a>
+            <a href="arkascended.html" target="_blank" class="game-card">
+                <div class="pic">
+                    <img src="img/hot/21.jpg" alt="方舟：生存飞升" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                <div class="info">
+                    <h3>方舟：生存飞升</h3>
+                    <p>恐龙生存</p>
+                </div>
+            </a>
+            <a href="cyberpunk2077.html" target="_blank" class="game-card">
+                <div class="pic">
+                    <img src="img/hot/22.jpg" alt="赛博朋克2077" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                <div class="info">
+                    <h3>赛博朋克2077</h3>
+                    <p>赛博开放世界</p>
+                </div>
+            </a>
+            <a href="ghostrunner2.html" target="_blank" class="game-card">
+                <div class="pic">
+                    <img src="img/hot/23.jpg" alt="幽灵行者2" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                <div class="info">
+                    <h3>幽灵行者2</h3>
+                    <p>高速赛博动作</p>
+                </div>
+            </a>
+            <a href="cities2.html" target="_blank" class="game-card">
+                <div class="pic">
+                    <img src="img/hot/24.jpg" alt="都市：天际线2" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                <div class="info">
+                    <h3>都市：天际线2</h3>
+                    <p>城市建造模拟</p>
+                </div>
+            </a>
+            <a href="rdr2.html" target="_blank" class="game-card">
+                <div class="pic">
+                    <img src="img/hot/25.jpg" alt="荒野大镖客2" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                <div class="info">
+                    <h3>荒野大镖客2</h3>
+                    <p>西部开放世界</p>
+                </div>
+            </a>
+            <a href="gta5.html" target="_blank" class="game-card">
+                <div class="pic">
+                    <img src="img/hot/26.jpg" alt="GTA5" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                <div class="info">
+                    <h3>GTA5</h3>
+                    <p>经典开放世界</p>
+                </div>
+            </a>
+            <a href="haloevolution.html" target="_blank" class="game-card">
+                <div class="pic">
+                    <img src="img/hot/27.jpg" alt="光环：战役进化" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                <div class="info">
+                    <h3>光环：战役进化</h3>
+                    <p>科幻FPS</p>
+                </div>
+            </a>
+        </div>
+    </div>
+    <footer>
+        © 2026 Gaem及时雨游戏库 All Rights Reserved
+    </footer>
+</body>
+</html>
