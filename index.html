@@ -152,7 +152,6 @@ padding: 30px;
 color: #888;
 font-size: 14px;
 }
-
 /* ========== 搜索弹窗样式 ========== */
 .search-mask {
 position: fixed;
@@ -179,7 +178,7 @@ align-items: center;
 }
 .modal-head h3 {
 color: #fff;
-font-size: 20;
+font-size: 20px;
 }
 .close-modal {
 border: none;
@@ -215,7 +214,6 @@ padding: 30px 0;
 color: #777;
 font-size: 16px;
 }
-
 /* 移动端适配 */
 @media (max-width: 768px) {
 .banner {
@@ -270,7 +268,6 @@ font-size: 15px;
 </div>
 </div>
 </div>
-
 <!-- 所有游戏分区全部包裹在container内部 -->
 <div class="container">
     <!-- 1.D加密游戏分区 -->
@@ -325,7 +322,7 @@ font-size: 15px;
     <a href="hot.html" class="more-btn">查看更多 →</a>
     </div>
     <div class="game-list">
-    <a href="wukong.html" target="_blank" class="game-card">
+    <a href="blackmythwukong.html" target="_blank" class="game-card">
         <div class="pic">
             <img src="img/05.jpg" alt="黑神话：悟空">
         </div>
@@ -417,21 +414,21 @@ font-size: 15px;
     <div class="game-card">
     <div class="pic"></div>
     <div class="info">
-    <h3>今日更新游戏</h3>
+    <h3>今日更新</h3>
     <p>资源更新</p>
     </div>
     </div>
     <div class="game-card">
     <div class="pic"></div>
     <div class="info">
-    <h3>今日更新游戏</h3>
+    <h3>今日更新</h3>
     <p>资源更新</p>
     </div>
     </div>
     <div class="game-card">
     <div class="pic"></div>
     <div class="info">
-    <h3>今日更新游戏</h3>
+    <h3>今日更新</h3>
     <p>资源更新</p>
     </div>
     </div>
@@ -441,177 +438,236 @@ font-size: 15px;
 <footer>
 © 2026 Gaem及时雨游戏库 All Rights Reserved
 </footer>
-
 <script>
+// 页面加载完成后执行JS，防止DOM未加载获取不到元素
+document.addEventListener('DOMContentLoaded', function(){
+// 完整游戏数据库，全部字符串加双引号，无语法错误
 const gameDatabase = [
-    // ========== 第一批原有游戏 ==========
-    { name: "幽灵行动：荒野", url: "wildlands.html" },
-    { name: "龙之信条2", url: "dragon2.html" },
-    { name: "怪物猎人：荒野", url: "mhwilds.html" },
-    { name: "无主之地4", url: "border4.html" },
-    { name: "黑神话：悟空", url: "wukong.html" },
-    { name: "红色沙漠", url: "reddesert.html" },
-    { name: "阿凡达：潘多拉边境", url: "avatar.html" },
-    { name: "刺客信条：影", url: "acshadow.html" },
-    { name: "赛博朋克2077", url: "cyberpunk2077.html" },
-    { name: "刺客信条：奥德赛", url: "ac_odyssey.html" },
-    { name: "刺客信条：起源", url: "ac_origins.html" },
-    { name: "鬼灭之刃：火之神血风谭", url: "demonslayer1.html" },
-    { name: "刺客信条：黑旗", url: "acblackflag.html" },
-    { name: "心灵杀手2", url: "alanwake2.html" },
-    { name: "纪元117：罗马和平", url: "anno117.html" },
-    { name: "战锤西格玛时代：毁灭之国", url: "aos_destruction.html" },
-    { name: "方舟：生存飞升", url: "arkascended.html" },
-    { name: "原子陨落", url: "atomfall.html" },
-    { name: "鬼灭之刃：火之神血风谭2", url: "demonslayer2.html" },
-    { name: "刺客信条：英灵殿", url: "ac_valhalla.html" },
-    { name: "勇气默示录：飞天仙子HD高清重制版", url: "bravely_default_hd.html" },
-    { name: "建筑模拟器", url: "build_simulator.html" },
-    { name: "木卫四协议", url: "callistoprotocol.html" },
-    { name: "都市：天际线2", url: "cities2.html" },
-    { name: "城市交通模拟2026", url: "city_transport_sim2026.html" },
-    { name: "城市公交模拟", url: "citybus_sim.html" },
-    { name: "文明7", url: "civilization7.html" },
-    { name: "噬血代码2", url: "codevein2.html" },
-    { name: "轮回之兽", url: "beastcycle.html" },
-    { name: "死亡循环", url: "deathloop.html" },
-    { name: "死亡搁浅2：冥滩之上", url: "deathstranding2.html" },
-    { name: "鬼灭之刃：争当最强队士！", url: "demonslayer_strongest.html" },
-    // ========== 第二批补充F1/体育等游戏 ==========
-    { name: "F1 25", url: "f125.html" },
-    { name: "极限竞速：地平线6", url: "fh6.html" },
-    { name: "初音未来 Project DIVA MEGA39’s＋", url: "divamega39s.html" },
-    { name: "EA SPORTS PGA TOUR", url: "ea_pga_tour.html" },
-    { name: "EA SPORTS WRC", url: "ea_sports_wrc.html" },
-    { name: "EA SPORTS FC 24", url: "eafc24.html" },
-    { name: "EA SPORTS FC 25", url: "eafc25.html" },
-    { name: "EA SPORTS FC 26", url: "eafc26.html" },
-    { name: "无处可逃Edge of Nowhere", url: "edgeofnowhere.html" },
-    { name: "F1®车队经理2022", url: "f1_team_manager2022.html" },
-    { name: "F1®车队经理2023", url: "f1_team_manager2023.html" },
-    { name: "F1®车队经理2024", url: "f1_team_manager2024.html" },
-    { name: "F1® 24", url: "f124.html" },
-    { name: "地平线：西之绝境 完整版", url: "horizonwestcomplete.html" },
-    { name: "远方：涌变暗潮", url: "farchangingtides.html" },
-    { name: "凯蒂猫岛屿冒险", url: "hellokitty_island.html" },
-    { name: "野兽附身Feral Rights", url: "feral_rights.html" },
-    { name: "最终幻想战略版：伊瓦利斯编年史", url: "fftivallis.html" },
-    { name: "F1 2023", url: "f12023.html" },
-    { name: "FIFA 18", url: "fifa18.html" },
-    { name: "足球经理26", url: "fm26.html" },
-    { name: "足球经理2024", url: "fm2024.html" },
-    { name: "幽灵行者2", url: "ghostrunner2.html" },
-    { name: "战神5：诸神黄昏", url: "godofwar5.html" },
-    { name: "超级房车赛：传奇", url: "grid_legends.html" },
-    { name: "GTA5/侠盗猎车手5", url: "gta5.html" },
-    { name: "光环：战役进化", url: "haloevolution.html" },
-    // ========== 第三批大量单机游戏 ==========
-    { name: "女神异闻录４：黄金版", url: "p4g.html" },
-    { name: "地产大亨", url: "monopoly.html" },
-    { name: "审判之逝：湮灭的记忆", url: "judgment_lostmemory.html" },
-    { name: "侏罗纪世界：进化2", url: "jwe2.html" },
-    { name: "侏罗纪世界：进化3", url: "jwe3.html" },
-    { name: "匹诺曹的谎言", url: "liesofp.html" },
-    { name: "奇异人生：重逢", url: "lifeisstrange_reunion.html" },
-    { name: "庄园领主", url: "lordsofmanor.html" },
-    { name: "麦登橄榄球24", url: "madden24.html" },
-    { name: "麦登橄榄球25", url: "madden25.html" },
-    { name: "漫威暗夜之子", url: "marvels_midnight_suns.html" },
-    { name: "暗喻幻想：ReFantazio", url: "metaphorrefantazio.html" },
-    { name: "怪物猎人物语3：命运双龙", url: "mhstories3.html" },
-    { name: "真人快打1", url: "mk1.html" },
-    { name: "女神异闻录5：战略版", url: "p5t.html" },
-    { name: "地产大亨：星球大战 正邪交锋", url: "monopolystarwars.html" },
-    { name: "NBA 2K24", url: "nba2k24.html" },
-    { name: "NBA 2K26", url: "nba2k26.html" },
-    { name: "极品飞车22：不羁", url: "nfs22_unbound.html" },
-    { name: "仁王3", url: "nioh3.html" },
-    { name: "女神异闻录 3：Reload", url: "p3r.html" },
-    { name: "索尼克×夏特 世代重启", url: "sonic_x_shadow_generations.html" },
-    { name: "狙击精英VR", url: "sniperelitevr.html" },
-    { name: "流星ROCKMAN 完美合集", url: "rockman_complete.html" },
-    { name: "PGA巡回赛2K25", url: "pga2k25.html" },
-    { name: "过山车之星2", url: "planetcoaster2.html" },
-    { name: "识质存在PRAGMATA", url: "pragmata.html" },
-    { name: "波斯王子：失落的王冠", url: "princeofpersia_lostcrown.html" },
-    { name: "职业棒球之魂2024-2025", url: "proyakyu2024_2025.html" },
-    { name: "疯狂兔子：奇遇派对", url: "rabbids_party.html" },
-    { name: "RAIDOU Remastered：超力兵团奇谭", url: "raidou_remastered.html" },
-    { name: "随机消失", url: "random_disappear.html" },
-    { name: "荒野大镖客2", url: "rdr2.html" },
-    { name: "生化危机4：重制版", url: "re4remake.html" },
-    { name: "生化危机9：安魂曲", url: "re9.html" },
-    { name: "红霞岛", url: "redfall.html" },
-    { name: "幻兽帕鲁", url: "palworld.html" },
-    { name: "艾恩葛朗特：回荡新声", url: "saoecho.html" },
-    { name: "工人物语：新兴同盟", url: "settlers_new_alliance.html" },
-    { name: "街头霸王6", url: "sf6.html" },
-    { name: "真・女神转生3 HD重制版", url: "smt3hd.html" },
-    { name: "狙击精英：抵抗", url: "sniperelite_resistance.html" },
-    { name: "狙击精英5", url: "sniperelite5.html" },
-    // ========== 最新一批新增游戏 ==========
-    { name: "人中之龙：维新！极", url: "yakuza_ishin_kiwami.html" },
-    { name: "灵魂骇客2", url: "soulhackers2.html" },
-    { name: "刀剑神域：夺命凶弹", url: "swordartonlinebullet.html" },
-    { name: "最后生还者2：重制版", url: "tlou2remake.html" },
-    { name: "TopSpin 2K25", url: "topspin2k25.html" },
-    { name: "全面战争传奇：特洛伊", url: "troy.html" },
-    { name: "对马岛之魂：导演剪辑版", url: "tsushimadirector.html" },
-    { name: "全面战争：战锤3", url: "tw3.html" },
-    { name: "双点博物馆", url: "twopoint_museum.html" },
-    { name: "战锤40K：混沌之门- 恶魔猎人", url: "wh40k_daemonhunter.html" },
-    { name: "超级忍：反攻的斩击", url: "superninja_counterattack.html" },
-    { name: "人中之龙7外传：无名之龙", url: "yakuza7gaiden.html" },
-    { name: "超级棒球4", url: "superbaseball4.html" },
-    { name: "人中之龙8", url: "yakuza8.html" },
-    { name: "人中之龙8外传：夏威夷海盗", url: "yakuza8gaiden.html" },
-    { name: "零：红蝶 重制版", url: "zeroredbutterfly.html" },
-    { name: "索尼克：起源", url: "sonicorigins.html" },
-    { name: "索尼克赛车：交叉世界", url: "sonicracingcross.html" },
-    { name: "索尼克：超级巨星", url: "sonicsupersstars.html" },
-    { name: "人中之龙：极３", url: "yakuza3.html" },
-    { name: "漫威蜘蛛侠2", url: "spiderman2.html" },
-    { name: "星球大战：亡命之徒", url: "starwars_outlaws.html" }
+    { "name": "幽灵行动：荒野", "url": "wildlands.html" },
+    { "name": "龙之信条2", "url": "dragon2.html" },
+    { "name": "怪物猎人：荒野", "url": "mhwilds.html" },
+    { "name": "无主之地4", "url": "border4.html" },
+    { "name": "黑神话：悟空", "url": "blackmythwukong.html" },
+    { "name": "红色沙漠", "url": "reddesert.html" },
+    { "name": "阿凡达：潘多拉边境", "url": "avatar.html" },
+    { "name": "刺客信条：影", "url": "acshadow.html" },
+    { "name": "赛博朋克2077", "url": "cyberpunk2077.html" },
+    { "name": "刺客信条：奥德赛", "url": "ac_odyssey.html" },
+    { "name": "刺客信条：起源", "url": "ac_origins.html" },
+    { "name": "鬼灭之刃：火之神血风谭", "url": "demonslayer1.html" },
+    { "name": "刺客信条：黑旗", "url": "acblackflag.html" },
+    { "name": "心灵杀手2", "url": "alanwake2.html" },
+    { "name": "纪元117：罗马和平", "url": "anno117.html" },
+    { "name": "战锤西格玛时代：毁灭之国", "url": "aos_destruction.html" },
+    { "name": "方舟：生存飞升", "url": "arkascended.html" },
+    { "name": "原子陨落", "url": "atomfall.html" },
+    { "name": "鬼灭之刃：火之神血风谭2", "url": "demonslayer2.html" },
+    { "name": "刺客信条：英灵殿", "url": "ac_valhalla.html" },
+    { "name": "勇气默示录：飞天仙子HD高清重制版", "url": "bravely_default_hd.html" },
+    { "name": "建筑模拟器", "url": "build_simulator.html" },
+    { "name": "木卫四协议", "url": "callistoprotocol.html" },
+    { "name": "都市：天际线2", "url": "cities2.html" },
+    { "name": "城市交通模拟2026", "url": "city_transport_sim2026.html" },
+    { "name": "城市公交模拟", "url": "citybus_sim.html" },
+    { "name": "文明7", "url": "civilization7.html" },
+    { "name": "噬血代码2", "url": "codevein2.html" },
+    { "name": "轮回之兽", "url": "beastcycle.html" },
+    { "name": "死亡循环", "url": "deathloop.html" },
+    { "name": "死亡搁浅2：冥滩之上", "url": "deathstranding2.html" },
+    { "name": "鬼灭之刃：争当最强队士！", "url": "demonslayer_strongest.html" },
+    { "name": "F1 25", "url": "f125.html" },
+    { "name": "极限竞速：地平线6", "url": "fh6.html" },
+    { "name": "初音未来 Project DIVA MEGA39’s＋", "url": "divamega39s.html" },
+    { "name": "EA SPORTS PGA TOUR", "url": "ea_pga_tour.html" },
+    { "name": "EA SPORTS WRC", "url": "ea_sports_wrc.html" },
+    { "name": "EA SPORTS FC 24", "url": "eafc24.html" },
+    { "name": "EA SPORTS FC 25", "url": "eafc25.html" },
+    { "name": "EA SPORTS FC 26", "url": "eafc26.html" },
+    { "name": "无处可逃Edge of Nowhere", "url": "edgeofnowhere.html" },
+    { "name": "F1®车队经理2022", "url": "f1_team_manager2022.html" },
+    { "name": "F1®车队经理2023", "url": "f1_team_manager2023.html" },
+    { "name": "F1®车队经理2024", "url": "f1_team_manager2024.html" },
+    { "name": "F1® 24", "url": "f124.html" },
+    { "name": "地平线：西之绝境 完整版", "url": "horizonwestcomplete.html" },
+    { "name": "远方：涌变暗潮", "url": "farchangingtides.html" },
+    { "name": "凯蒂猫岛屿冒险", "url": "hellokitty_island.html" },
+    { "name": "野兽附身Feral Rights", "url": "feral_rights.html" },
+    { "name": "最终幻想战略版：伊瓦利斯编年史", "url": "fftivallis.html" },
+    { "name": "F1 2023", "url": "f12023.html" },
+    { "name": "FIFA 18", "url": "fifa18.html" },
+    { "name": "足球经理26", "url": "fm26.html" },
+    { "name": "足球经理2024", "url": "fm2024.html" },
+    { "name": "幽灵行者2", "url": "ghostrunner2.html" },
+    { "name": "战神5：诸神黄昏", "url": "godofwar5.html" },
+    { "name": "超级房车赛：传奇", "url": "grid_legends.html" },
+    { "name": "GTA5/侠盗猎车手5", "url": "gta5.html" },
+    { "name": "光环：战役进化", "url": "haloevolution.html" },
+    { "name": "女神异闻录４：黄金版", "url": "p4g.html" },
+    { "name": "地产大亨", "url": "monopoly.html" },
+    { "name": "审判之逝：湮灭的记忆", "url": "judgment_lostmemory.html" },
+    { "name": "侏罗纪世界：进化2", "url": "jwe2.html" },
+    { "name": "侏罗纪世界：进化3", "url": "jwe3.html" },
+    { "name": "匹诺曹的谎言", "url": "liesofp.html" },
+    { "name": "奇异人生：重逢", "url": "lifeisstrange_reunion.html" },
+    { "name": "庄园领主", "url": "lordsofmanor.html" },
+    { "name": "麦登橄榄球24", "url": "madden24.html" },
+    { "name": "麦登橄榄球25", "url": "madden25.html" },
+    { "name": "漫威暗夜之子", "url": "marvels_midnight_suns.html" },
+    { "name": "暗喻幻想：ReFantazio", "url": "metaphorrefantazio.html" },
+    { "name": "怪物猎人物语3：命运双龙", "url": "mhstories3.html" },
+    { "name": "真人快打1", "url": "mk1.html" },
+    { "name": "女神异闻录5：战略版", "url": "p5t.html" },
+    { "name": "地产大亨：星球大战 正邪交锋", "url": "monopolystarwars.html" },
+    { "name": "NBA 2K24", "url": "nba2k24.html" },
+    { "name": "NBA 2K26", "url": "nba2k26.html" },
+    { "name": "极品飞车22：不羁", "url": "nfs22_unbound.html" },
+    { "name": "仁王3", "url": "nioh3.html" },
+    { "name": "女神异闻录 3：Reload", "url": "p3r.html" },
+    { "name": "索尼克×夏特 世代重启", "url": "sonic_x_shadow_generations.html" },
+    { "name": "狙击精英VR", "url": "sniperelitevr.html" },
+    { "name": "流星ROCKMAN 完美合集", "url": "rockman_complete.html" },
+    { "name": "PGA巡回赛2K25", "url": "pga2k25.html" },
+    { "name": "过山车之星2", "url": "planetcoaster2.html" },
+    { "name": "识质存在PRAGMATA", "url": "pragmata.html" },
+    { "name": "波斯王子：失落的王冠", "url": "princeofpersia_lostcrown.html" },
+    { "name": "职业棒球之魂2024-2025", "url": "proyakyu2024_2025.html" },
+    { "name": "疯狂兔子：奇遇派对", "url": "rabbids_party.html" },
+    { "name": "RAIDOU Remastered：超力兵团奇谭", "url": "raidou_remastered.html" },
+    { "name": "随机消失", "url": "random_disappear.html" },
+    { "name": "荒野大镖客2", "url": "rdr2.html" },
+    { "name": "生化危机4：重制版", "url": "residentevil4remake.html" },
+    { "name": "生化危机9：安魂曲", "url": "re9.html" },
+    { "name": "红霞岛", "url": "redfall.html" },
+    { "name": "幻兽帕鲁", "url": "palworld.html" },
+    { "name": "艾恩葛朗特：回荡新声", "url": "saoecho.html" },
+    { "name": "工人物语：新兴同盟", "url": "settlers_new_alliance.html" },
+    { "name": "街头霸王6", "url": "sf6.html" },
+    { "name": "真・女神转生3 HD重制版", "url": "smt3hd.html" },
+    { "name": "狙击精英：抵抗", "url": "sniperelite_resistance.html" },
+    { "name": "狙击精英5", "url": "sniperelite5.html" },
+    { "name": "人中之龙：维新！极", "url": "yakuza_ishin_kiwami.html" },
+    { "name": "灵魂骇客2", "url": "soulhackers2.html" },
+    { "name": "刀剑神域：夺命凶弹", "url": "swordartonlinebullet.html" },
+    { "name": "最后生还者2：重制版", "url": "tlou2remake.html" },
+    { "name": "TopSpin 2K25", "url": "topspin2k25.html" },
+    { "name": "全面战争传奇：特洛伊", "url": "troy.html" },
+    { "name": "对马岛之魂：导演剪辑版", "url": "tsushimadirector.html" },
+    { "name": "全面战争：战锤3", "url": "tw3.html" },
+    { "name": "双点博物馆", "url": "twopoint_museum.html" },
+    { "name": "战锤40K：混沌之门- 恶魔猎人", "url": "wh40k_daemonhunter.html" },
+    { "name": "超级忍：反攻的斩击", "url": "superninja_counterattack.html" },
+    { "name": "人中之龙7外传：无名之龙", "url": "yakuza7gaiden.html" },
+    { "name": "超级棒球4", "url": "superbaseball4.html" },
+    { "name": "人中之龙8", "url": "yakuza8.html" },
+    { "name": "人中之龙8外传：夏威夷海盗", "url": "yakuza8gaiden.html" },
+    { "name": "零：红蝶 重制版", "url": "zeroredbutterfly.html" },
+    { "name": "索尼克：起源", "url": "sonicorigins.html" },
+    { "name": "索尼克赛车：交叉世界", "url": "sonicracingcross.html" },
+    { "name": "索尼克：超级巨星", "url": "sonicsupersstars.html" },
+    { "name": "人中之龙：极３", "url": "yakuza3.html" },
+    { "name": "漫威蜘蛛侠2", "url": "spiderman2.html" },
+    { "name": "星球大战：亡命之徒", "url": "starwars_outlaws.html" },
+    { "name": "艾尔登法环", "url": "eldenring.html" },
+    { "name": "艾尔登法环黑夜君临", "url": "eldenringnightreign.html" },
+    { "name": "苍蓝混沌效应", "url": "blazbluechaoseffect.html" },
+    { "name": "神之亵渎2", "url": "blasphemous2.html" },
+    { "name": "禁闭求生2", "url": "grounded2.html" },
+    { "name": "渔帆暗涌", "url": "dredge.html" },
+    { "name": "毁灭战士永恒", "url": "doometernal.html" },
+    { "name": "生化危机3重制版", "url": "re3remake.html" },
+    { "name": "师父", "url": "sifu.html" },
+    { "name": "龙珠超宇宙2", "url": "dbxv2.html" },
+    { "name": "最后纪元", "url": "lastepoch.html" },
+    { "name": "无人深空", "url": "nomanssky.html" },
+    { "name": "宣誓", "url": "avowed.html" },
+    { "name": "战锤40K星际战士2", "url": "wh40kspacemarine2.html" },
+    { "name": "第一狂战士卡赞", "url": "firstberserkerkazan.html" },
+    { "name": "007初露锋芒", "url": "007firstlight.html" },
+    { "name": "歧路旅人0", "url": "octopathtraveler0.html" },
+    { "name": "剑星", "url": "stellarblade.html" },
+    { "name": "刺客信条幻景", "url": "acmirage.html" },
+    { "name": "生灵重塑", "url": "creaturesreborn.html" },
+    { "name": "纪元1800", "url": "anno1800.html" },
+    { "name": "战地风云6", "url": "bf6.html" },
+    { "name": "inZOI云族裔", "url": "inzoi.html" },
+    { "name": "双影奇境", "url": "doubleghost.html" },
+    { "name": "最终幻想7重制版", "url": "ff7remake.html" },
+    { "name": "最终幻想7重生", "url": "ff7rebirth.html" },
+    { "name": "最终幻想16", "url": "ff16.html" },
+    { "name": "哥特王朝重制版", "url": "gothic1remake.html" },
+    { "name": "帝国时代4", "url": "aoe4.html" },
+    { "name": "雪地奔驰", "url": "snowrunner.html" },
+    { "name": "骑马与砍杀2霸主", "url": "bannerlord.html" },
+    { "name": "暗黑破坏神2重制版终极版", "url": "d2rultimate.html" },
+    { "name": "剑士kenshi", "url": "kenshi.html" },
+    { "name": "流放者柯南增强版", "url": "conanexilesenhanced.html" },
+    { "name": "双人成行", "url": "ittakestwo.html" },
+    { "name": "人渣SCUM", "url": "scum.html" },
+    { "name": "欧洲卡车模拟2", "url": "ets2.html" },
+    { "name": "霍格沃茨之遗", "url": "hogwartslegacy.html" },
+    { "name": "土豆兄弟", "url": "potatobrother.html" },
+    { "name": "巫师3狂猎", "url": "witcher3.html" },
+    { "name": "森林之子", "url": "sonsoftheforest.html" },
+    { "name": "逃离塔科夫", "url": "escapefromtarkov.html" },
+    { "name": "七日杀", "url": "7daystodie.html" },
+    { "name": "钢铁雄心4", "url": "hoi4.html" },
+    { "name": "群星", "url": "stellaris.html" },
+    { "name": "消逝的光芒2", "url": "dyinglight2.html" },
+    { "name": "消逝的光芒困兽", "url": "dyinglightbeast.html" },
+    { "name": "严阵以待", "url": "readyornot.html" },
+    { "name": "漫威蜘蛛侠重制", "url": "spidermanremake.html" },
+    { "name": "全面战争罗马2", "url": "totalwarrome2.html" },
+    { "name": "十字军之王3", "url": "ck3.html" },
+    { "name": "车祸模拟器BeamNG", "url": "beamngdrive.html" },
+    { "name": "无主之地3", "url": "borderlands3.html" },
+    { "name": "迷失Stray", "url": "stray.html" },
+    { "name": "僵尸世界大战劫后余生", "url": "worldwarz.html" },
+    { "name": "美国卡车模拟", "url": "ats.html" },
+    { "name": "天国拯救1高清版", "url": "kingdomcomedeliverancehd.html" },
+    { "name": "天国拯救2", "url": "kingdomcome2.html" },
+    { "name": "博德之门3", "url": "bg3.html" },
+    { "name": "只狼sekiro", "url": "sekiro.html" }
 ];
 
-// DOM元素
+// DOM元素正确获取
 const searchInput = document.getElementById('searchInput');
 const searchBtn = document.getElementById('searchBtn');
 const searchMask = document.getElementById('searchMask');
 const modalBody = document.getElementById('modalBody');
 const closeSearchModal = document.getElementById('closeSearchModal');
 
-// 关闭弹窗
+// 关闭弹窗函数
 function closeModal(){
     searchMask.style.display = 'none';
     modalBody.innerHTML = '';
 }
-// 点击关闭按钮
+// 关闭按钮点击
 closeSearchModal.addEventListener('click', closeModal);
 // 点击遮罩关闭
 searchMask.addEventListener('click', function(e){
     if(e.target === searchMask) closeModal();
 })
 
-// 搜索主逻辑
+// 核心搜索函数（修复变量gameDatabase过滤）
 function doSearch() {
     let keyword = searchInput.value.trim().toLowerCase();
+    console.log("输入关键词：", keyword);
     if (!keyword) {
         alert("请输入游戏名称再搜索！");
         return;
     }
-    // 模糊匹配数组
+    // 修复：使用正确数组gameDatabase，之前写game直接报错无数据
     const matchList = gameDatabase.filter(item=> item.name.toLowerCase().includes(keyword));
+    console.log("匹配结果：", matchList);
     if(matchList.length === 0){
         alert("未找到该游戏，请更换关键词重试！");
         return;
     }
     if(matchList.length === 1){
-        // 仅一个匹配，直接跳转
         window.open(matchList[0].url, "_blank");
         return;
     }
-    // 多个匹配，弹窗渲染选项
+    // 渲染多条匹配
     modalBody.innerHTML = '';
     matchList.forEach(game=>{
         const itemDom = document.createElement('div');
@@ -623,17 +679,17 @@ function doSearch() {
         }
         modalBody.appendChild(itemDom);
     })
-    // 显示弹窗
     searchMask.style.display = 'flex';
 }
 
-// 点击搜索
+// 绑定点击事件
 searchBtn.addEventListener('click', doSearch);
 // 回车搜索
 searchInput.addEventListener('keydown', function(e) {
     if (e.key === 'Enter') {
         doSearch();
     }
+});
 });
 </script>
 </body>
