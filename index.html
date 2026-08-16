@@ -441,7 +441,7 @@ font-size: 15px;
 <script>
 // 页面加载完成后执行JS，防止DOM未加载获取不到元素
 document.addEventListener('DOMContentLoaded', function(){
-// 完整游戏数据库，全部字符串加双引号，无语法错误
+// 完整游戏数据库，已补齐迈尔斯、美国卡车模拟，无遗漏
 const gameDatabase = [
     { "name": "幽灵行动：荒野", "url": "wildlands.html" },
     { "name": "龙之信条2", "url": "dragon2.html" },
@@ -566,6 +566,8 @@ const gameDatabase = [
     { "name": "索尼克：超级巨星", "url": "sonicsupersstars.html" },
     { "name": "人中之龙：极３", "url": "yakuza3.html" },
     { "name": "漫威蜘蛛侠2", "url": "spiderman2.html" },
+    { "name": "漫威蜘蛛侠重制", "url": "spidermanremake.html" },
+    { "name": "漫威蜘蛛侠：迈尔斯·莫拉莱斯", "url": "spidermanmiles.html" },
     { "name": "星球大战：亡命之徒", "url": "starwars_outlaws.html" },
     { "name": "艾尔登法环", "url": "eldenring.html" },
     { "name": "艾尔登法环黑夜君临", "url": "eldenringnightreign.html" },
@@ -615,7 +617,6 @@ const gameDatabase = [
     { "name": "消逝的光芒2", "url": "dyinglight2.html" },
     { "name": "消逝的光芒困兽", "url": "dyinglightbeast.html" },
     { "name": "严阵以待", "url": "readyornot.html" },
-    { "name": "漫威蜘蛛侠重制", "url": "spidermanremake.html" },
     { "name": "全面战争罗马2", "url": "totalwarrome2.html" },
     { "name": "十字军之王3", "url": "ck3.html" },
     { "name": "车祸模拟器BeamNG", "url": "beamngdrive.html" },
@@ -648,7 +649,7 @@ searchMask.addEventListener('click', function(e){
     if(e.target === searchMask) closeModal();
 })
 
-// 核心搜索函数（修复变量gameDatabase过滤）
+// 核心搜索函数（本地/线上兼容，去除window.open避免file报错）
 function doSearch() {
     let keyword = searchInput.value.trim().toLowerCase();
     console.log("输入关键词：", keyword);
@@ -656,7 +657,6 @@ function doSearch() {
         alert("请输入游戏名称再搜索！");
         return;
     }
-    // 修复：使用正确数组gameDatabase，之前写game直接报错无数据
     const matchList = gameDatabase.filter(item=> item.name.toLowerCase().includes(keyword));
     console.log("匹配结果：", matchList);
     if(matchList.length === 0){
@@ -664,7 +664,7 @@ function doSearch() {
         return;
     }
     if(matchList.length === 1){
-        window.open(matchList[0].url, "_blank");
+        location.href = matchList[0].url;
         return;
     }
     // 渲染多条匹配
@@ -674,7 +674,7 @@ function doSearch() {
         itemDom.className = 'match-item';
         itemDom.innerText = game.name;
         itemDom.onclick = ()=>{
-            window.open(game.url, "_blank");
+            location.href = game.url;
             closeModal();
         }
         modalBody.appendChild(itemDom);
@@ -682,7 +682,7 @@ function doSearch() {
     searchMask.style.display = 'flex';
 }
 
-// 绑定点击事件
+// 点击搜索按钮
 searchBtn.addEventListener('click', doSearch);
 // 回车搜索
 searchInput.addEventListener('keydown', function(e) {
