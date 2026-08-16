@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
@@ -30,7 +31,7 @@ justify-content: center;
 content: "";
 position: absolute;
 inset: 0;
-background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.65));
+background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0.65));
 }
 .banner-content {
 z-index: 2;
@@ -114,7 +115,7 @@ color:inherit;
 background: #fff;
 border-radius: 12px;
 overflow: hidden;
-box-shadow: 0 3px 12px rgba(0,0,0,0.07);
+box-shadow: 0 3px 12px rgba(0,0,0.07);
 transition: transform 0.25s ease, box-shadow 0.25s;
 }
 .game-card:hover {
@@ -151,6 +152,70 @@ padding: 30px;
 color: #888;
 font-size: 14px;
 }
+
+/* ========== 搜索弹窗样式 ========== */
+.search-mask {
+position: fixed;
+inset: 0;
+background: rgba(0,0,0,0.65);
+display: none;
+z-index: 9999;
+align-items: center;
+justify-content: center;
+}
+.search-modal {
+background: #fff;
+width: min(92%, 620px);
+border-radius: 16px;
+overflow: hidden;
+box-shadow: 0 0 30px #b726d840;
+}
+.modal-head {
+padding: 20px 24px;
+background: linear-gradient(90deg,#b726d8,#3088ff);
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+.modal-head h3 {
+color: #fff;
+font-size: 20;
+}
+.close-modal {
+border: none;
+background: #ffffff33;
+color: #fff;
+width: 32px;
+height: 32px;
+border-radius: 50%;
+cursor: pointer;
+font-size: 18px;
+}
+.modal-body {
+max-height: 60vh;
+overflow-y: auto;
+padding: 16px 24px;
+}
+.match-item {
+padding: 14px 16px;
+border-bottom: #eee solid 1px;
+cursor: pointer;
+transition: 0.2s;
+}
+.match-item:last-child {
+border-bottom: none;
+}
+.match-item:hover {
+background: #f3eaff;
+color: #b726d8;
+}
+.tip-text {
+text-align: center;
+padding: 30px 0;
+color: #777;
+font-size: 16px;
+}
+
 /* 移动端适配 */
 @media (max-width: 768px) {
 .banner {
@@ -172,6 +237,13 @@ padding: 30px 15px;
 grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
 gap: 16px;
 }
+.modal-head h3 {
+font-size: 17px;
+}
+.match-item {
+padding: 12px;
+font-size: 15px;
+}
 }
 </style>
 </head>
@@ -181,8 +253,20 @@ gap: 16px;
 <div class="banner-content">
 <h1>Gaem及时雨游戏库</h1>
 <div class="search-box">
-<input type="text" placeholder="输入游戏名称搜索...">
-<button>搜索</button>
+<input id="searchInput" type="text" placeholder="输入游戏名称搜索...">
+<button id="searchBtn">搜索</button>
+</div>
+</div>
+</div>
+<!-- 搜索结果弹窗 -->
+<div class="search-mask" id="searchMask">
+<div class="search-modal">
+<div class="modal-head">
+<h3>匹配到的游戏</h3>
+<button class="close-modal" id="closeSearchModal">×</button>
+</div>
+<div class="modal-body" id="modalBody">
+<!-- 匹配项JS动态生成 -->
 </div>
 </div>
 </div>
@@ -234,7 +318,6 @@ gap: 16px;
     </a>
     </div>
     </div>
-
     <!-- 2.热门游戏分区 -->
     <div class="game-section">
     <div class="section-head">
@@ -280,8 +363,7 @@ gap: 16px;
     </a>
     </div>
     </div>
-
-    <!-- 3.新增游戏分区（放在container内，居中生效） -->
+    <!-- 3.新增游戏分区 -->
     <div class="game-section">
     <div class="section-head">
     <h2>✨ 新增游戏分区</h2>
@@ -318,8 +400,7 @@ gap: 16px;
     </div>
     </div>
     </div>
-
-    <!-- 4.每日更新游戏分区（同样在container内部） -->
+    <!-- 4.每日更新游戏分区 -->
     <div class="game-section">
     <div class="section-head">
     <h2>🕒 每日更新游戏分区</h2>
@@ -356,10 +437,204 @@ gap: 16px;
     </div>
     </div>
     </div>
-</div> <!-- 关闭居中容器，所有游戏区块到此结束 -->
-
+</div> <!-- 关闭居中容器 -->
 <footer>
 © 2026 Gaem及时雨游戏库 All Rights Reserved
 </footer>
+
+<script>
+const gameDatabase = [
+    // ========== 第一批原有游戏 ==========
+    { name: "幽灵行动：荒野", url: "wildlands.html" },
+    { name: "龙之信条2", url: "dragon2.html" },
+    { name: "怪物猎人：荒野", url: "mhwilds.html" },
+    { name: "无主之地4", url: "border4.html" },
+    { name: "黑神话：悟空", url: "wukong.html" },
+    { name: "红色沙漠", url: "reddesert.html" },
+    { name: "阿凡达：潘多拉边境", url: "avatar.html" },
+    { name: "刺客信条：影", url: "acshadow.html" },
+    { name: "赛博朋克2077", url: "cyberpunk2077.html" },
+    { name: "刺客信条：奥德赛", url: "ac_odyssey.html" },
+    { name: "刺客信条：起源", url: "ac_origins.html" },
+    { name: "鬼灭之刃：火之神血风谭", url: "demonslayer1.html" },
+    { name: "刺客信条：黑旗", url: "acblackflag.html" },
+    { name: "心灵杀手2", url: "alanwake2.html" },
+    { name: "纪元117：罗马和平", url: "anno117.html" },
+    { name: "战锤西格玛时代：毁灭之国", url: "aos_destruction.html" },
+    { name: "方舟：生存飞升", url: "arkascended.html" },
+    { name: "原子陨落", url: "atomfall.html" },
+    { name: "鬼灭之刃：火之神血风谭2", url: "demonslayer2.html" },
+    { name: "刺客信条：英灵殿", url: "ac_valhalla.html" },
+    { name: "勇气默示录：飞天仙子HD高清重制版", url: "bravely_default_hd.html" },
+    { name: "建筑模拟器", url: "build_simulator.html" },
+    { name: "木卫四协议", url: "callistoprotocol.html" },
+    { name: "都市：天际线2", url: "cities2.html" },
+    { name: "城市交通模拟2026", url: "city_transport_sim2026.html" },
+    { name: "城市公交模拟", url: "citybus_sim.html" },
+    { name: "文明7", url: "civilization7.html" },
+    { name: "噬血代码2", url: "codevein2.html" },
+    { name: "轮回之兽", url: "beastcycle.html" },
+    { name: "死亡循环", url: "deathloop.html" },
+    { name: "死亡搁浅2：冥滩之上", url: "deathstranding2.html" },
+    { name: "鬼灭之刃：争当最强队士！", url: "demonslayer_strongest.html" },
+    // ========== 第二批补充F1/体育等游戏 ==========
+    { name: "F1 25", url: "f125.html" },
+    { name: "极限竞速：地平线6", url: "fh6.html" },
+    { name: "初音未来 Project DIVA MEGA39’s＋", url: "divamega39s.html" },
+    { name: "EA SPORTS PGA TOUR", url: "ea_pga_tour.html" },
+    { name: "EA SPORTS WRC", url: "ea_sports_wrc.html" },
+    { name: "EA SPORTS FC 24", url: "eafc24.html" },
+    { name: "EA SPORTS FC 25", url: "eafc25.html" },
+    { name: "EA SPORTS FC 26", url: "eafc26.html" },
+    { name: "无处可逃Edge of Nowhere", url: "edgeofnowhere.html" },
+    { name: "F1®车队经理2022", url: "f1_team_manager2022.html" },
+    { name: "F1®车队经理2023", url: "f1_team_manager2023.html" },
+    { name: "F1®车队经理2024", url: "f1_team_manager2024.html" },
+    { name: "F1® 24", url: "f124.html" },
+    { name: "地平线：西之绝境 完整版", url: "horizonwestcomplete.html" },
+    { name: "远方：涌变暗潮", url: "farchangingtides.html" },
+    { name: "凯蒂猫岛屿冒险", url: "hellokitty_island.html" },
+    { name: "野兽附身Feral Rights", url: "feral_rights.html" },
+    { name: "最终幻想战略版：伊瓦利斯编年史", url: "fftivallis.html" },
+    { name: "F1 2023", url: "f12023.html" },
+    { name: "FIFA 18", url: "fifa18.html" },
+    { name: "足球经理26", url: "fm26.html" },
+    { name: "足球经理2024", url: "fm2024.html" },
+    { name: "幽灵行者2", url: "ghostrunner2.html" },
+    { name: "战神5：诸神黄昏", url: "godofwar5.html" },
+    { name: "超级房车赛：传奇", url: "grid_legends.html" },
+    { name: "GTA5/侠盗猎车手5", url: "gta5.html" },
+    { name: "光环：战役进化", url: "haloevolution.html" },
+    // ========== 第三批大量单机游戏 ==========
+    { name: "女神异闻录４：黄金版", url: "p4g.html" },
+    { name: "地产大亨", url: "monopoly.html" },
+    { name: "审判之逝：湮灭的记忆", url: "judgment_lostmemory.html" },
+    { name: "侏罗纪世界：进化2", url: "jwe2.html" },
+    { name: "侏罗纪世界：进化3", url: "jwe3.html" },
+    { name: "匹诺曹的谎言", url: "liesofp.html" },
+    { name: "奇异人生：重逢", url: "lifeisstrange_reunion.html" },
+    { name: "庄园领主", url: "lordsofmanor.html" },
+    { name: "麦登橄榄球24", url: "madden24.html" },
+    { name: "麦登橄榄球25", url: "madden25.html" },
+    { name: "漫威暗夜之子", url: "marvels_midnight_suns.html" },
+    { name: "暗喻幻想：ReFantazio", url: "metaphorrefantazio.html" },
+    { name: "怪物猎人物语3：命运双龙", url: "mhstories3.html" },
+    { name: "真人快打1", url: "mk1.html" },
+    { name: "女神异闻录5：战略版", url: "p5t.html" },
+    { name: "地产大亨：星球大战 正邪交锋", url: "monopolystarwars.html" },
+    { name: "NBA 2K24", url: "nba2k24.html" },
+    { name: "NBA 2K26", url: "nba2k26.html" },
+    { name: "极品飞车22：不羁", url: "nfs22_unbound.html" },
+    { name: "仁王3", url: "nioh3.html" },
+    { name: "女神异闻录 3：Reload", url: "p3r.html" },
+    { name: "索尼克×夏特 世代重启", url: "sonic_x_shadow_generations.html" },
+    { name: "狙击精英VR", url: "sniperelitevr.html" },
+    { name: "流星ROCKMAN 完美合集", url: "rockman_complete.html" },
+    { name: "PGA巡回赛2K25", url: "pga2k25.html" },
+    { name: "过山车之星2", url: "planetcoaster2.html" },
+    { name: "识质存在PRAGMATA", url: "pragmata.html" },
+    { name: "波斯王子：失落的王冠", url: "princeofpersia_lostcrown.html" },
+    { name: "职业棒球之魂2024-2025", url: "proyakyu2024_2025.html" },
+    { name: "疯狂兔子：奇遇派对", url: "rabbids_party.html" },
+    { name: "RAIDOU Remastered：超力兵团奇谭", url: "raidou_remastered.html" },
+    { name: "随机消失", url: "random_disappear.html" },
+    { name: "荒野大镖客2", url: "rdr2.html" },
+    { name: "生化危机4：重制版", url: "re4remake.html" },
+    { name: "生化危机9：安魂曲", url: "re9.html" },
+    { name: "红霞岛", url: "redfall.html" },
+    { name: "幻兽帕鲁", url: "palworld.html" },
+    { name: "艾恩葛朗特：回荡新声", url: "saoecho.html" },
+    { name: "工人物语：新兴同盟", url: "settlers_new_alliance.html" },
+    { name: "街头霸王6", url: "sf6.html" },
+    { name: "真・女神转生3 HD重制版", url: "smt3hd.html" },
+    { name: "狙击精英：抵抗", url: "sniperelite_resistance.html" },
+    { name: "狙击精英5", url: "sniperelite5.html" },
+    // ========== 最新一批新增游戏 ==========
+    { name: "人中之龙：维新！极", url: "yakuza_ishin_kiwami.html" },
+    { name: "灵魂骇客2", url: "soulhackers2.html" },
+    { name: "刀剑神域：夺命凶弹", url: "swordartonlinebullet.html" },
+    { name: "最后生还者2：重制版", url: "tlou2remake.html" },
+    { name: "TopSpin 2K25", url: "topspin2k25.html" },
+    { name: "全面战争传奇：特洛伊", url: "troy.html" },
+    { name: "对马岛之魂：导演剪辑版", url: "tsushimadirector.html" },
+    { name: "全面战争：战锤3", url: "tw3.html" },
+    { name: "双点博物馆", url: "twopoint_museum.html" },
+    { name: "战锤40K：混沌之门- 恶魔猎人", url: "wh40k_daemonhunter.html" },
+    { name: "超级忍：反攻的斩击", url: "superninja_counterattack.html" },
+    { name: "人中之龙7外传：无名之龙", url: "yakuza7gaiden.html" },
+    { name: "超级棒球4", url: "superbaseball4.html" },
+    { name: "人中之龙8", url: "yakuza8.html" },
+    { name: "人中之龙8外传：夏威夷海盗", url: "yakuza8gaiden.html" },
+    { name: "零：红蝶 重制版", url: "zeroredbutterfly.html" },
+    { name: "索尼克：起源", url: "sonicorigins.html" },
+    { name: "索尼克赛车：交叉世界", url: "sonicracingcross.html" },
+    { name: "索尼克：超级巨星", url: "sonicsupersstars.html" },
+    { name: "人中之龙：极３", url: "yakuza3.html" },
+    { name: "漫威蜘蛛侠2", url: "spiderman2.html" },
+    { name: "星球大战：亡命之徒", url: "starwars_outlaws.html" }
+];
+
+// DOM元素
+const searchInput = document.getElementById('searchInput');
+const searchBtn = document.getElementById('searchBtn');
+const searchMask = document.getElementById('searchMask');
+const modalBody = document.getElementById('modalBody');
+const closeSearchModal = document.getElementById('closeSearchModal');
+
+// 关闭弹窗
+function closeModal(){
+    searchMask.style.display = 'none';
+    modalBody.innerHTML = '';
+}
+// 点击关闭按钮
+closeSearchModal.addEventListener('click', closeModal);
+// 点击遮罩关闭
+searchMask.addEventListener('click', function(e){
+    if(e.target === searchMask) closeModal();
+})
+
+// 搜索主逻辑
+function doSearch() {
+    let keyword = searchInput.value.trim().toLowerCase();
+    if (!keyword) {
+        alert("请输入游戏名称再搜索！");
+        return;
+    }
+    // 模糊匹配数组
+    const matchList = gameDatabase.filter(item=> item.name.toLowerCase().includes(keyword));
+    if(matchList.length === 0){
+        alert("未找到该游戏，请更换关键词重试！");
+        return;
+    }
+    if(matchList.length === 1){
+        // 仅一个匹配，直接跳转
+        window.open(matchList[0].url, "_blank");
+        return;
+    }
+    // 多个匹配，弹窗渲染选项
+    modalBody.innerHTML = '';
+    matchList.forEach(game=>{
+        const itemDom = document.createElement('div');
+        itemDom.className = 'match-item';
+        itemDom.innerText = game.name;
+        itemDom.onclick = ()=>{
+            window.open(game.url, "_blank");
+            closeModal();
+        }
+        modalBody.appendChild(itemDom);
+    })
+    // 显示弹窗
+    searchMask.style.display = 'flex';
+}
+
+// 点击搜索
+searchBtn.addEventListener('click', doSearch);
+// 回车搜索
+searchInput.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') {
+        doSearch();
+    }
+});
+</script>
 </body>
 </html>
