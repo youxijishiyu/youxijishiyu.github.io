@@ -397,41 +397,49 @@ font-size: 15px;
     </div>
     </div>
     </div>
-    <!-- 4.每日更新游戏分区 -->
+    <!-- 4.使命召唤系列分区 -->
     <div class="game-section">
     <div class="section-head">
-    <h2>🕒 每日更新游戏分区</h2>
-    <a href="update.html" class="more-btn">查看更多 →</a>
+    <h2>🎮 使命召唤系列</h2>
+    <a href="cod.html" class="more-btn">查看更多 →</a>
     </div>
     <div class="game-list">
-    <div class="game-card">
-    <div class="pic"></div>
-    <div class="info">
-    <h3>今日更新游戏</h3>
-    <p>资源更新</p>
-    </div>
-    </div>
-    <div class="game-card">
-    <div class="pic"></div>
-    <div class="info">
-    <h3>今日更新</h3>
-    <p>资源更新</p>
-    </div>
-    </div>
-    <div class="game-card">
-    <div class="pic"></div>
-    <div class="info">
-    <h3>今日更新</h3>
-    <p>资源更新</p>
-    </div>
-    </div>
-    <div class="game-card">
-    <div class="pic"></div>
-    <div class="info">
-    <h3>今日更新</h3>
-    <p>资源更新</p>
-    </div>
-    </div>
+    <a href="cod21.html" target="_blank" class="game-card">
+        <div class="pic">
+            <img src="img/cod/01.jpg" alt="使命召唤21：黑色行动6">
+        </div>
+        <div class="info">
+            <h3>使命召唤21：黑色行动6</h3>
+            <p>COD系列</p>
+        </div>
+    </a>
+    <a href="cod20.html" target="_blank" class="game-card">
+        <div class="pic">
+            <img src="img/cod/02.jpg" alt="使命召唤20：现代战争3">
+        </div>
+        <div class="info">
+            <h3>使命召唤20：现代战争3</h3>
+            <p>COD系列</p>
+        </div>
+    </a>
+    <a href="cod19.html" target="_blank" class="game-card">
+        <div class="pic">
+            <img src="img/cod/03.jpg" alt="使命召唤19：现代战争2">
+        </div>
+        <div class="info">
+            <h3>使命召唤19：现代战争2</h3>
+            <p>COD系列</p>
+        </div>
+    </a>
+    <a href="cod18.html" target="_blank" class="game-card">
+        <div class="pic">
+            <img src="img/cod/04.jpg" alt="使命召唤18：先锋">
+        </div>
+        <div class="info">
+            <h3>使命召唤18：先锋</h3>
+            <p>COD系列</p>
+        </div>
+    </a>
     </div>
     </div>
 </div> <!-- 关闭居中容器 -->
@@ -441,7 +449,7 @@ font-size: 15px;
 <script>
 // 页面加载完成后执行JS，防止DOM未加载获取不到元素
 document.addEventListener('DOMContentLoaded', function(){
-// 完整游戏数据库，已补齐迈尔斯、美国卡车模拟，无遗漏
+// 完整游戏数据库，新增4款COD游戏，无遗漏
 const gameDatabase = [
     { "name": "幽灵行动：荒野", "url": "wildlands.html" },
     { "name": "龙之信条2", "url": "dragon2.html" },
@@ -627,7 +635,11 @@ const gameDatabase = [
     { "name": "天国拯救1高清版", "url": "kingdomcomedeliverancehd.html" },
     { "name": "天国拯救2", "url": "kingdomcome2.html" },
     { "name": "博德之门3", "url": "bg3.html" },
-    { "name": "只狼sekiro", "url": "sekiro.html" }
+    { "name": "只狼sekiro", "url": "sekiro.html" },
+    { "name": "使命召唤21：黑色行动6", "url": "cod21.html" },
+    { "name": "使命召唤20：现代战争3", "url": "cod20.html" },
+    { "name": "使命召唤19：现代战争2", "url": "cod19.html" },
+    { "name": "使命召唤18：先锋", "url": "cod18.html" }
 ];
 
 // DOM元素正确获取
