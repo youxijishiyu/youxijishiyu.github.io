@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>使命召唤系列 - Gaem及时雨游戏库</title>
+<style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: system-ui, -apple-system, sans-serif;
+}
+body {
+background-color: #f7f9fc;
+color: #333;
+}
+/* 页面头部 完全复刻newgame.html样式 */
+.page-header {
+width:100%;
+background: linear-gradient(90deg,#b726d8,#3088ff);
+padding:42px 20px;
+text-align:center;
+color:#fff;
+}
+.page-header h1{
+font-size:32px;
+margin-bottom:12px;
+text-shadow:0 2px 10px #0005;
+}
+.page-header a{
+color:#fff;
+opacity:0.92;
+text-decoration:none;
+font-size:16px;
+}
+.page-header a:hover{
+text-decoration:underline;
+}
+.container {
+max-width: 1320px;
+margin: 0 auto;
+padding: 60px 20px;
+}
+.section-head {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: 28px;
+}
+.section-head h2 {
+font-size: 22px;
+border-left: 5px solid #b827d9;
+padding-left: 14px;
+}
+/* 游戏卡片网格 和首页保持完全一致 */
+.game-list {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+gap: 24px;
+}
+.game-card {
+display:block;
+text-decoration:none;
+color:inherit;
+background: #fff;
+border-radius: 12px;
+overflow: hidden;
+box-shadow: 0 3px 12px rgba(0,0,0,0.07);
+transition: transform 0.25s ease, box-shadow 0.25s;
+}
+.game-card:hover {
+transform: translateY(-6px);
+box-shadow: 0 8px 24px rgba(183, 38, 216, 0.16);
+}
+.game-card .pic {
+height: 140px;
+background: linear-gradient(135deg, #e0e7ff, #c7d2fe);
+}
+.game-card .pic img {
+width:100%;
+height:100%;
+object-fit:cover;
+}
+.game-card .info {
+padding: 14px;
+}
+.game-card h3 {
+font-size: 15px;
+margin-bottom: 6px;
+overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
+}
+.game-card p {
+font-size: 13px;
+color: #777;
+}
+footer {
+text-align: center;
+padding: 30px;
+color: #888;
+font-size: 14px;
+}
+/*移动端适配 */
+@media (max-width: 768px) {
+.page-header h1{
+font-size:24px;
+}
+.container{
+padding:30px 15px;
+}
+.game-list {
+grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+gap: 16px;
+}
+}
+</style>
+</head>
+<body>
+<div class="page-header">
+    <h1>🎮 使命召唤系列</h1>
+    <a href="index.html">← 返回首页</a>
+</div>
+<div class="container">
+    <div class="section-head">
+        <h2>全部使命召唤系列游戏</h2>
+    </div>
+    <div class="game-list">
+        <!--原有4个 -->
+        <a href="cod21.html" target="_blank" class="game-card">
+            <div class="pic">
+                <img src="img/cod/01.jpg" alt="使命召唤21：黑色行动6">
+            </div>
+            <div class="info">
+                <h3>使命召唤21：黑色行动6</h3>
+                <p>COD系列</p>
+            </div>
+        </a>
+        <a href="cod20.html" target="_blank" class="game-card">
+            <div class="pic">
+                <img src="img/cod/02.jpg" alt="使命召唤20：现代战争3">
+            </div>
+            <div class="info">
+                <h3>使命召唤20：现代战争3</h3>
+                <p>COD系列</p>
+            </div>
+        </a>
+        <a href="cod19.html" target="_blank" class="game-card">
+            <div class="pic">
+                <img src="img/cod/03.jpg" alt="使命召唤19：现代战争2">
+            </div>
+            <div class="info">
+                <h3>使命召唤19：现代战争2</h3>
+                <p>COD系列</p>
+            </div>
+        </a>
+        <a href="cod18.html" target="_blank" class="game-card">
+            <div class="pic">
+                <img src="img/cod/04.jpg" alt="使命召唤18：先锋">
+            </div>
+            <div class="info">
+                <h3>使命召唤18：先锋</h3>
+                <p>COD系列</p>
+            </div>
+        </a>
+        <!--新增10个 -->
+        <a href="cod17.html" target="_blank" class="game-card">
+            <div class="pic">
+                <img src="img/cod/05.jpg" alt="使命召唤17：黑色行动冷战">
+            </div>
+            <div class="info">
+                <h3>使命召唤17：黑色行动冷战</h3>
+                <p>COD系列</p>
+            </div>
+        </a>
+        <a href="cod16.html" target="_blank" class="game-card">
+            <div class="pic">
+                <img src="img/cod/06.jpg" alt="使命召唤16：现代战争">
+            </div>
+            <div class="info">
+                <h3>使命召唤16：现代战争</h3>
+                <p>COD系列</p>
+            </div>
+        </a>
+        <a href="cod14.html" target="_blank" class="game-card">
+            <div class="pic">
+                <img src="img/cod/07.jpg" alt="使命召唤14：二战">
+            </div>
+            <div class="info">
+                <h3>使命召唤14：二战</h3>
+                <p>COD系列</p>
+            </div>
+        </a>
+        <a href="cod13.html" target="_blank" class="game-card">
+            <div class="pic">
+                <img src="img/cod/08.jpg" alt="使命召唤13：无限战争">
+            </div>
+            <div class="info">
+                <h3>使命召唤13：无限战争</h3>
+                <p>COD系列</p>
+            </div>
+        </a>
+        <a href="cod12.html" target="_blank" class="game-card">
+            <div class="pic">
+                <img src="img/cod/09.jpg" alt="使命召唤12：黑色行动3">
+            </div>
+            <div class="info">
+                <h3>使命召唤12：黑色行动3</h3>
+                <p>COD系列</p>
+            </div>
+        </a>
+        <a href="cod11.html" target="_blank" class="game-card">
+            <div class="pic">
+                <img src="img/cod/10.jpg" alt="使命召唤11：高级战争">
+            </div>
+            <div class="info">
+                <h3>使命召唤11：高级战争</h3>
+                <p>COD系列</p>
+            </div>
+        </a>
+        <a href="cod10.html" target="_blank" class="game-card">
+            <div class="pic">
+                <img src="img/cod/11.jpg" alt="使命召唤10：幽灵">
+            </div>
+            <div class="info">
+                <h3>使命召唤10：幽灵</h3>
+                <p>COD系列</p>
+            </div>
+        </a>
+        <a href="cod9.html" target="_blank" class="game-card">
+            <div class="pic">
+                <img src="img/cod/12.jpg" alt="使命召唤9：黑色行动2">
+            </div>
+            <div class="info">
+                <h3>使命召唤9：黑色行动2</h3>
+                <p>COD系列</p>
+            </div>
+        </a>
+        <a href="cod6remake.html" target="_blank" class="game-card">
+            <div class="pic">
+                <img src="img/cod/13.jpg" alt="使命召唤6：现代战争2 重制版">
+            </div>
+            <div class="info">
+                <h3>使命召唤6：现代战争2 重制版</h3>
+                <p>COD系列</p>
+            </div>
+        </a>
+        <a href="cod4remake.html" target="_blank" class="game-card">
+            <div class="pic">
+                <img src="img/cod/14.jpg" alt="使命召唤4：现代战争 重制版">
+            </div>
+            <div class="info">
+                <h3>使命召唤4：现代战争 重制版</h3>
+                <p>COD系列</p>
+            </div>
+        </a>
+    </div>
+</div>
+<footer>
+© 2026 Gaem及时雨游戏库 All Rights Reserved
+</footer>
+</body>
+</html>
