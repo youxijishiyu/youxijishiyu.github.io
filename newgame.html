@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>新增游戏分区 - Gaem及时雨游戏库</title>
+<style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: system-ui, -apple-system, sans-serif;
+}
+body {
+background-color: #f7f9fc;
+color: #333;
+}
+/* 页面头部 */
+.page-header {
+width:100%;
+background: linear-gradient(90deg,#b726d8,#3088ff);
+padding:42px 20px;
+text-align:center;
+color:#fff;
+}
+.page-header h1{
+font-size:32px;
+margin-bottom:12px;
+text-shadow:0 2px 10px #0005;
+}
+.page-header a{
+color:#fff;
+opacity:0.92;
+text-decoration:none;
+font-size:16px;
+}
+.page-header a:hover{
+text-decoration:underline;
+}
+/* 页面内容容器 */
+.container {
+max-width: 1320px;
+margin: 0 auto;
+padding: 60px 20px;
+}
+.section-head {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: 28px;
+}
+.section-head h2 {
+font-size: 22px;
+border-left: 5px solid #b827d9;
+padding-left: 14px;
+}
+/* 游戏卡片网格布局 和首页保持完全一致 */
+.game-list {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+gap: 24px;
+}
+.game-card {
+display:block;
+text-decoration:none;
+color:inherit;
+background: #fff;
+border-radius: 12px;
+overflow: hidden;
+box-shadow: 0 3px 12px rgba(0,0,0,0.07);
+transition: transform 0.25s ease, box-shadow 0.25s;
+}
+.game-card:hover {
+transform: translateY(-6px);
+box-shadow: 0 8px 24px rgba(183, 38, 216, 0.16);
+}
+.game-card .pic {
+height: 140px;
+background: linear-gradient(135deg, #e0e7ff, #c7d2fe);
+}
+.game-card .pic img {
+width:100%;
+height:100%;
+object-fit:cover;
+}
+.game-card .info {
+padding: 14px;
+}
+.game-card h3 {
+font-size: 15px;
+margin-bottom: 6px;
+overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
+}
+.game-card p {
+font-size: 13px;
+color: #777;
+}
+footer {
+text-align: center;
+padding: 30px;
+color: #888;
+font-size: 14px;
+}
+/* 移动端适配 */
+@media (max-width: 768px) {
+.page-header h1{
+font-size:24px;
+}
+.container {
+padding: 30px 15px;
+}
+.game-list {
+grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+gap: 16px;
+}
+}
+</style>
+</head>
+<body>
+<div class="page-header">
+    <h1>✨ 新增游戏分区</h1>
+    <a href="index.html">← 返回首页</a>
+</div>
+
+<div class="container">
+    <div class="section-head">
+        <h2>全部新增入库游戏</h2>
+    </div>
+    <div class="game-list">
+        <!-- 原有4个 -->
+         <a href="mortalshell2.html" target="_blank" class="game-card">
+            <div class="pic">
+                <img src="img/newgame/01.jpg" alt="致命躯壳2">
+            </div>
+            <div class="info">
+                <h3>致命躯壳2</h3>
+                <p>最新入库</p>
+            </div>
+        </a>
+        <a href="marvelbrawl.html" target="_blank" class="game-card">
+            <div class="pic">
+                <img src="img/newgame/02.jpg" alt="漫威斗魂">
+            </div>
+            <div class="info">
+                <h3>漫威斗魂</h3>
+                <p>最新入库</p>
+            </div>
+        </a>
+        <a href="darkironlaw.html" target="_blank" class="game-card">
+            <div class="pic">
+                <img src="img/newgame/03.jpg" alt="暗星铁律">
+            </div>
+            <div class="info">
+                <h3>暗星铁律</h3>
+                <p>最新入库</p>
+            </div>
+        </a>
+        <a href="ironcannon.html" target="_blank" class="game-card">
+            <div class="pic">
+                <img src="img/newgame/04.jpg" alt="铁巢重炮">
+            </div>
+            <div class="info">
+                <h3>铁巢重炮</h3>
+                <p>最新入库</p>
+            </div>
+        </a>
+        <a href="godarmor.html" target="_blank" class="game-card">
+            <div class="pic">
+                <img src="img/newgame/05.jpg" alt="神之军火">
+            </div>
+            <div class="info">
+                <h3>神之军火</h3>
+                <p>最新入库</p>
+            </div>
+        </a>
+        <a href="heroesolderaeon.html" target="_blank" class="game-card">
+            <div class="pic">
+                <img src="img/newgame/06.jpg" alt="魔法门之英雄无敌：上古纪元">
+            </div>
+            <div class="info">
+                <h3>魔法门之英雄无敌：上古纪元</h3>
+                <p>最新入库</p>
+            </div>
+        </a>
+        <a href="eternalsky.html" target="_blank" class="game-card">
+            <div class="pic">
+                <img src="img/newgame/07.jpg" alt="永恒天空">
+            </div>
+            <div class="info">
+                <h3>永恒天空</h3>
+                <p>最新入库</p>
+            </div>
+        </a>
+        <a href="blessedone.html" target="_blank" class="game-card">
+            <div class="pic">
+                <img src="img/newgame/08.jpg" alt="圣眷者">
+            </div>
+            <div class="info">
+                <h3>圣眷者</h3>
+                <p>最新入库</p>
+            </div>
+        </a>
+        <a href="mytapes.html" target="_blank" class="game-card">
+            <div class="pic">
+                <img src="img/newgame/09.jpg" alt="我有一堆录像带">
+            </div>
+            <div class="info">
+                <h3>我有一堆录像带</h3>
+                <p>最新入库</p>
+            </div>
+        </a>
+        <a href="flowerandgod.html" target="_blank" class="game-card">
+            <div class="pic">
+                <img src="img/newgame/10.jpg" alt="鲜花与众神">
+            </div>
+            <div class="info">
+                <h3>鲜花与众神</h3>
+                <p>最新入库</p>
+            </div>
+        </a>
+        <a href="dawnruin.html" target="_blank" class="game-card">
+            <div class="pic">
+                <img src="img/newgame/11.jpg" alt="破晓之墟">
+            </div>
+            <div class="info">
+                <h3>破晓之墟</h3>
+                <p>最新入库</p>
+            </div>
+        </a>
+        <a href="witchblood.html" target="_blank" class="game-card">
+            <div class="pic">
+                <img src="img/newgame/12.jpg" alt="女巫之血">
+            </div>
+            <div class="info">
+                <h3>女巫之血</h3>
+                <p>最新入库</p>
+            </div>
+        </a>
+        <a href="chemistdeadzone.html" target="_blank" class="game-card">
+            <div class="pic">
+                <img src="img/newgame/13.jpg" alt="化学家：致命地带">
+            </div>
+            <div class="info">
+                <h3>化学家：致命地带</h3>
+                <p>最新入库</p>
+            </div>
+        </a>
+        <a href="sisterotherdelusion.html" target="_blank" class="game-card">
+            <div class="pic">
+                <img src="img/newgame/14.jpg" alt="妹妹，他人，妄想症">
+            </div>
+            <div class="info">
+                <h3>妹妹，他人，妄想症</h3>
+                <p>最新入库</p>
+            </div>
+        </a>
+        <a href="pizzashopsim.html" target="_blank" class="game-card">
+            <div class="pic">
+                <img src="img/newgame/15.jpg" alt="披萨店主模拟器">
+            </div>
+            <div class="info">
+                <h3>披萨店主模拟器</h3>
+                <p>最新入库</p>
+            </div>
+        </a>
+        <a href="tombcthulhu.html" target="_blank" class="game-card">
+            <div class="pic">
+                <img src="img/newgame/16.jpg" alt="古冢：克苏鲁凶兆">
+            </div>
+            <div class="info">
+                <h3>古冢：克苏鲁凶兆</h3>
+                <p>最新入库</p>
+            </div>
+        </a>
+        <a href="fallenlords.html" target="_blank" class="game-card">
+            <div class="pic">
+                <img src="img/newgame/17.jpg" alt="堕落之主">
+            </div>
+            <div class="info">
+                <h3>堕落之主</h3>
+                <p>最新入库</p>
+            </div>
+        </a>
+        <a href="siberianrailsim.html" target="_blank" class="game-card">
+            <div class="pic">
+                <img src="img/newgame/18.jpg" alt="西伯利亚铁路模拟器">
+            </div>
+            <div class="info">
+                <h3>西伯利亚铁路模拟器</h3>
+                <p>最新入库</p>
+            </div>
+        </a>
+        <a href="payday2.html" target="_blank" class="game-card">
+            <div class="pic">
+                <img src="img/newgame/19.jpg" alt="收获日2">
+            </div>
+            <div class="info">
+                <h3>收获日2</h3>
+                <p>最新入库</p>
+            </div>
+        </a>
+        <a href="daxialegend.html" target="_blank" class="game-card">
+            <div class="pic">
+                <img src="img/newgame/20.jpg" alt="大侠立志传：碧血丹心">
+            </div>
+            <div class="info">
+                <h3>大侠立志传：碧血丹心</h3>
+                <p>最新入库</p>
+            </div>
+        </a>
+        <a href="domereadyprep.html" target="_blank" class="game-card">
+            <div class="pic">
+                <img src="img/newgame/21.jpg" alt="末日准备狂">
+            </div>
+            <div class="info">
+                <h3>末日准备狂</h3>
+                <p>最新入库</p>
+            </div>
+        </a>
+        <a href="nicotinemerchant.html" target="_blank" class="game-card">
+            <div class="pic">
+                <img src="img/newgame/22.jpg" alt="尼古丁商人模拟器">
+            </div>
+            <div class="info">
+                <h3>尼古丁商人模拟器</h3>
+                <p>最新入库</p>
+            </div>
+        </a>
+        <a href="illwill.html" target="_blank" class="game-card">
+            <div class="pic">
+                <img src="img/newgame/23.jpg" alt="敌意illWill">
+            </div>
+            <div class="info">
+                <h3>敌意illWill</h3>
+                <p>最新入库</p>
+            </div>
+        </a>
+        <a href="pawnshopsim.html" target="_blank" class="game-card">
+            <div class="pic">
+                <img src="img/newgame/24.jpg" alt="典当行模拟器">
+            </div>
+            <div class="info">
+                <h3>典当行模拟器</h3>
+                <p>最新入库</p>
+            </div>
+        </a>
+        <a href="mechdesertgarden.html" target="_blank" class="game-card">
+            <div class="pic">
+                <img src="img/newgame/25.jpg" alt="机械荒庭">
+            </div>
+            <div class="info">
+                <h3>机械荒庭</h3>
+                <p>最新入库</p>
+            </div>
+        </a>
+        <a href="daggerorder.html" target="_blank" class="game-card">
+            <div class="pic">
+                <img src="img/newgame/26.jpg" alt="匕首指令">
+            </div>
+            <div class="info">
+                <h3>匕首指令</h3>
+                <p>最新入库</p>
+            </div>
+        </a>
+        <a href="convenienceclean.html" target="_blank" class="game-card">
+            <div class="pic">
+                <img src="img/newgame/27.jpg" alt="便利店大扫除">
+            </div>
+            <div class="info">
+                <h3>便利店大扫除</h3>
+                <p>最新入库</p>
+            </div>
+        </a>
+        <a href="evilschoolgame.html" target="_blank" class="game-card">
+            <div class="pic">
+                <img src="img/newgame/28.jpg" alt="恶校游戏">
+            </div>
+            <div class="info">
+                <h3>恶校游戏</h3>
+                <p>最新入库</p>
+            </div>
+        </a>
+        <a href="snowburial.html" target="_blank" class="game-card">
+            <div class="pic">
+                <img src="img/newgame/29.jpg" alt="雪葬">
+            </div>
+            <div class="info">
+                <h3>雪葬</h3>
+                <p>最新入库</p>
+            </div>
+        </a>
+        <a href="sinkingcity2.html" target="_blank" class="game-card">
+            <div class="pic">
+                <img src="img/newgame/30.jpg" alt="沉没之城2">
+            </div>
+            <div class="info">
+                <h3>沉没之城2</h3>
+                <p>最新入库</p>
+            </div>
+        </a>
+        <a href="eyeoftheheart.html" target="_blank" class="game-card">
+            <div class="pic">
+                <img src="img/newgame/31.jpg" alt="心之眼">
+            </div>
+            <div class="info">
+                <h3>心之眼</h3>
+                <p>最新入库</p>
+            </div>
+        </a>
+        <a href="relicfirstguardian.html" target="_blank" class="game-card">
+            <div class="pic">
+                <img src="img/newgame/32.jpg" alt="遗迹：第一守护者">
+            </div>
+            <div class="info">
+                <h3>遗迹：第一守护者</h3>
+                <p>最新入库</p>
+            </div>
+        </a>
+        <a href="fallencity.html" target="_blank" class="game-card">
+            <div class="pic">
+                <img src="img/newgame/33.jpg" alt="终落之城">
+            </div>
+            <div class="info">
+                <h3>终落之城</h3>
+                <p>最新入库</p>
+            </div>
+        </a>
+        <a href="victoria3.html" target="_blank" class="game-card">
+            <div class="pic">
+                <img src="img/newgame/34.jpg" alt="维多利亚3">
+            </div>
+            <div class="info">
+                <h3>维多利亚3</h3>
+                <p>最新入库</p>
+            </div>
+        </a>
+        <a href="virtualhouse2.html" target="_blank" class="game-card">
+            <div class="pic">
+                <img src="img/newgame/35.jpg" alt="虚拟小屋2">
+            </div>
+            <div class="info">
+                <h3>虚拟小屋2</h3>
+                <p>最新入库</p>
+            </div>
+        </a>
+        <a href="girlscollegecity.html" target="_blank" class="game-card">
+            <div class="pic">
+                <img src="img/newgame/36.jpg" alt="少女与学院城">
+            </div>
+            <div class="info">
+                <h3>少女与学院城</h3>
+                <p>最新入库</p>
+            </div>
+        </a>
+        <a href="dragonswordawake.html" target="_blank" class="game-card">
+            <div class="pic">
+                <img src="img/newgame/37.jpg" alt="龙之剑：觉醒">
+            </div>
+            <div class="info">
+                <h3>龙之剑：觉醒</h3>
+                <p>最新入库</p>
+            </div>
+        </a>
+        <a href="lumaisland.html" target="_blank" class="game-card">
+            <div class="pic">
+                <img src="img/newgame/38.jpg" alt="露玛岛">
+            </div>
+            <div class="info">
+                <h3>露玛岛</h3>
+                <p>最新入库</p>
+            </div>
+        </a>
+        <a href="caesarpunk.html" target="_blank" class="game-card">
+            <div class="pic">
+                <img src="img/newgame/39.jpg" alt="凯撒朋克">
+            </div>
+            <div class="info">
+                <h3>凯撒朋克</h3>
+                <p>最新入库</p>
+            </div>
+        </a>
+        <a href="prohibitionbeastshadow.html" target="_blank" class="game-card">
+            <div class="pic">
+                <img src="img/newgame/40.jpg" alt="禁酒兽影">
+            </div>
+            <div class="info">
+                <h3>禁酒兽影</h3>
+                <p>最新入库</p>
+            </div>
+        </a>
+        <a href="swordshieldsim.html" target="_blank" class="game-card">
+            <div class="pic">
+                <img src="img/newgame/41.jpg" alt="剑盾模拟器">
+            </div>
+            <div class="info">
+                <h3>剑盾模拟器</h3>
+                <p>最新入库</p>
+            </div>
+        </a>
+        <a href="coinsim.html" target="_blank" class="game-card">
+            <div class="pic">
+                <img src="img/newgame/42.jpg" alt="浣币模拟器">
+            </div>
+            <div class="info">
+                <h3>浣币模拟器</h3>
+                <p>最新入库</p>
+            </div>
+        </a>
+        <a href="kishimojin.html" target="_blank" class="game-card">
+            <div class="pic">
+                <img src="img/newgame/43.jpg" alt="鬼子母">
+            </div>
+            <div class="info">
+                <h3>鬼子母</h3>
+                <p>最新入库</p>
+            </div>
+        </a>
+        <a href="lightwarrior.html" target="_blank" class="game-card">
+            <div class="pic">
+                <img src="img/newgame/44.jpg" alt="光之战士">
+            </div>
+            <div class="info">
+                <h3>光之战士</h3>
+                <p>最新入库</p>
+            </div>
+        </a>
+        <a href="synthwaveoverdrive.html" target="_blank" class="game-card">
+            <div class="pic">
+                <img src="img/newgame/45.jpg" alt="合成波狂飙">
+            </div>
+            <div class="info">
+                <h3>合成波狂飙</h3>
+                <p>最新入库</p>
+            </div>
+        </a>
