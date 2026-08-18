@@ -15,16 +15,26 @@
             background-color: #f7f9fc;
             color: #333;
         }
-        .header-bar{
+        /* 页面头部 从newgame.html复制 */
+        .page-header {
+            width:100%;
             background: linear-gradient(90deg,#b726d8,#3088ff);
-            padding:16px 20px;
-        }
-        .back-home{
+            padding:42px 20px;
+            text-align:center;
             color:#fff;
+        }
+        .page-header h1{
+            font-size:32px;
+            margin-bottom:12px;
+            text-shadow:0 2px 10px #0005;
+        }
+        .page-header a{
+            color:#fff;
+            opacity:0.92;
             text-decoration:none;
             font-size:16px;
         }
-        .back-home:hover{
+        .page-header a:hover{
             text-decoration:underline;
         }
         .container {
@@ -82,6 +92,9 @@
             font-size: 14px;
         }
         @media (max-width: 768px) {
+            .page-header h1{
+                font-size:24px;
+            }
             .game-list {
                 grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
                 gap: 16px;
@@ -90,11 +103,13 @@
     </style>
 </head>
 <body>
-    <div class="header-bar">
-        <a href="index.html" class="back-home">← 返回首页</a>
+    <!-- 使用newgame.html同款头部 -->
+    <div class="page-header">
+        <h1>🎯 D加密游戏分区 · 需设置虚拟机</h1>
+        <a href="index.html">← 返回首页</a>
     </div>
     <div class="container">
-        <h2 class="page-title">🎯 D加密游戏分区 · 需设置虚拟机</h2>
+        <h2 class="page-title">D加密游戏分区 · 需设置虚拟机</h2>
         <div class="game-list">
             <!-- 所有D加密游戏全部放这里，以后新增直接复制卡片 -->
             <a href="wildlands.html" target="_blank" class="game-card">
@@ -133,8 +148,7 @@
                     <p>D加密 · Denuvo</p>
                 </div>
             </a>
-
-            <a href="p3r.html" target="_blank" class="game-card">
+<a href="p3r.html" target="_blank" class="game-card">
     <div class="pic">
         <img src="img/Denuvo/01.jpg" alt="女神异闻录3：Reload" style="width:100%;height:100%;object-fit:cover;">
     </div>
@@ -278,7 +292,6 @@
         <p>D加密 · Denuvo</p>
     </div>
 </a>
-
 <!-- ==========新增游戏开始========== -->
 <a href="hellokitty_island.html" target="_blank" class="game-card">
     <div class="pic">
@@ -839,7 +852,6 @@
     </div>
 </a>
 <!-- ==========新增游戏结束========== -->
-
 <!-- 本次新增游戏开始 -->
 <a href="superbaseball4.html" target="_blank" class="game-card">
     <div class="pic">
@@ -941,9 +953,7 @@
     </div>
 </a>
 <!-- 本次新增游戏结束 -->
-
 <!-- ==========新增游戏结束========== -->
-
             <!-- 后续新增游戏粘贴在此处 -->
         </div>
     </div>
