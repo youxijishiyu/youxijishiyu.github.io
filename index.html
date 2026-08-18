@@ -367,34 +367,42 @@ font-size: 15px;
     <a href="newgame.html" class="more-btn">查看更多 →</a>
     </div>
     <div class="game-list">
-    <div class="game-card">
-    <div class="pic"></div>
-    <div class="info">
-    <h3>新上架游戏</h3>
-    <p>最新入库</p>
-    </div>
-    </div>
-    <div class="game-card">
-    <div class="pic"></div>
-    <div class="info">
-    <h3>新上架游戏</h3>
-    <p>最新入库</p>
-    </div>
-    </div>
-    <div class="game-card">
-    <div class="pic"></div>
-    <div class="info">
-    <h3>新上架游戏</h3>
-    <p>最新入库</p>
-    </div>
-    </div>
-    <div class="game-card">
-    <div class="pic"></div>
-    <div class="info">
-    <h3>新上架游戏</h3>
-    <p>最新入库</p>
-    </div>
-    </div>
+    <a href="mortalshell2.html" target="_blank" class="game-card">
+        <div class="pic">
+            <img src="img/newgame/01.jpg" alt="致命躯壳2">
+        </div>
+        <div class="info">
+            <h3>致命躯壳2</h3>
+            <p>最新入库</p>
+        </div>
+    </a>
+    <a href="marvelbrawl.html" target="_blank" class="game-card">
+        <div class="pic">
+            <img src="img/newgame/02.jpg" alt="漫威斗魂">
+        </div>
+        <div class="info">
+            <h3>漫威斗魂</h3>
+            <p>最新入库</p>
+        </div>
+    </a>
+    <a href="darkironlaw.html" target="_blank" class="game-card">
+        <div class="pic">
+            <img src="img/newgame/03.jpg" alt="暗星铁律">
+        </div>
+        <div class="info">
+            <h3>暗星铁律</h3>
+            <p>最新入库</p>
+        </div>
+    </a>
+    <a href="ironcannon.html" target="_blank" class="game-card">
+        <div class="pic">
+            <img src="img/newgame/04.jpg" alt="铁巢重炮">
+        </div>
+        <div class="info">
+            <h3>铁巢重炮</h3>
+            <p>最新入库</p>
+        </div>
+    </a>
     </div>
     </div>
     <!-- 4.使命召唤系列分区 -->
@@ -449,7 +457,7 @@ font-size: 15px;
 <script>
 // 页面加载完成后执行JS，防止DOM未加载获取不到元素
 document.addEventListener('DOMContentLoaded', function(){
-// 完整游戏数据库，新增4款COD游戏，无遗漏
+// 完整游戏数据库，新增COD + 新增4款新游戏
 const gameDatabase = [
     { "name": "幽灵行动：荒野", "url": "wildlands.html" },
     { "name": "龙之信条2", "url": "dragon2.html" },
@@ -639,7 +647,11 @@ const gameDatabase = [
     { "name": "使命召唤21：黑色行动6", "url": "cod21.html" },
     { "name": "使命召唤20：现代战争3", "url": "cod20.html" },
     { "name": "使命召唤19：现代战争2", "url": "cod19.html" },
-    { "name": "使命召唤18：先锋", "url": "cod18.html" }
+    { "name": "使命召唤18：先锋", "url": "cod18.html" },
+    { "name": "致命躯壳2", "url": "mortalshell2.html" },
+    { "name": "漫威斗魂", "url": "marvelbrawl.html" },
+    { "name": "暗星铁律", "url": "darkironlaw.html" },
+    { "name": "铁巢重炮", "url": "ironcannon.html" }
 ];
 
 // DOM元素正确获取
