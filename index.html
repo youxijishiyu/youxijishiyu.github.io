@@ -455,15 +455,14 @@ font-size: 15px;
 © 2026 Gaem及时雨游戏库 All Rights Reserved
 </footer>
 <script>
-// 页面加载完成后执行JS，防止DOM未加载获取不到元素
 document.addEventListener('DOMContentLoaded', function(){
-// 完整游戏数据库，新增COD + 新增全部新游戏
+// 完整游戏数据库｜修复黑神话链接 + 补齐全部使命召唤正传
 const gameDatabase = [
     { "name": "幽灵行动：荒野", "url": "wildlands.html" },
     { "name": "龙之信条2", "url": "dragon2.html" },
     { "name": "怪物猎人：荒野", "url": "mhwilds.html" },
     { "name": "无主之地4", "url": "border4.html" },
-    { "name": "黑神话：悟空", "url": "blackmythwukong.html" },
+    { "name": "黑神话：悟空", "url": "wukong.html" },
     { "name": "红色沙漠", "url": "reddesert.html" },
     { "name": "阿凡达：潘多拉边境", "url": "avatar.html" },
     { "name": "刺客信条：影", "url": "acshadow.html" },
@@ -644,10 +643,29 @@ const gameDatabase = [
     { "name": "天国拯救2", "url": "kingdomcome2.html" },
     { "name": "博德之门3", "url": "bg3.html" },
     { "name": "只狼sekiro", "url": "sekiro.html" },
-    { "name": "使命召唤21：黑色行动6", "url": "cod21.html" },
-    { "name": "使命召唤20：现代战争3", "url": "cod20.html" },
-    { "name": "使命召唤19：现代战争2", "url": "cod19.html" },
+    // 完整使命召唤系列
+    { "name": "使命召唤1", "url": "cod1.html" },
+    { "name": "使命召唤2", "url": "cod2.html" },
+    { "name": "使命召唤3", "url": "cod3.html" },
+    { "name": "使命召唤4：现代战争", "url": "cod4.html" },
+    { "name": "使命召唤5：世界战争", "url": "cod5.html" },
+    { "name": "使命召唤6：现代战争2", "url": "cod6.html" },
+    { "name": "使命召唤7：黑色行动", "url": "cod7.html" },
+    { "name": "使命召唤8：现代战争3", "url": "cod8.html" },
+    { "name": "使命召唤9：黑色行动2", "url": "cod9.html" },
+    { "name": "使命召唤10：幽灵", "url": "cod10.html" },
+    { "name": "使命召唤11：高级战争", "url": "cod11.html" },
+    { "name": "使命召唤12：黑色行动3", "url": "cod12.html" },
+    { "name": "使命召唤13：无限战争", "url": "cod13.html" },
+    { "name": "使命召唤14：二战", "url": "cod14.html" },
+    { "name": "使命召唤15：黑色行动4", "url": "cod15.html" },
+    { "name": "使命召唤16：现代战争", "url": "cod16.html" },
+    { "name": "使命召唤17：黑色行动冷战", "url": "cod17.html" },
     { "name": "使命召唤18：先锋", "url": "cod18.html" },
+    { "name": "使命召唤19：现代战争2", "url": "cod19.html" },
+    { "name": "使命召唤20：现代战争3", "url": "cod20.html" },
+    { "name": "使命召唤21：黑色行动6", "url": "cod21.html" },
+
     { "name": "致命躯壳2", "url": "mortalshell2.html" },
     { "name": "漫威斗魂", "url": "marvelbrawl.html" },
     { "name": "暗星铁律", "url": "darkironlaw.html" },
@@ -694,24 +712,28 @@ const gameDatabase = [
     { "name": "光之战士", "url": "lightwarrior.html" },
     { "name": "合成波狂飙", "url": "synthwaveoverdrive.html" }
 ];
-// DOM元素正确获取
+
+// DOM元素获取
 const searchInput = document.getElementById('searchInput');
 const searchBtn = document.getElementById('searchBtn');
 const searchMask = document.getElementById('searchMask');
 const modalBody = document.getElementById('modalBody');
 const closeSearchModal = document.getElementById('closeSearchModal');
+
 // 关闭弹窗函数
 function closeModal(){
     searchMask.style.display = 'none';
     modalBody.innerHTML = '';
 }
+
 // 关闭按钮点击
 closeSearchModal.addEventListener('click', closeModal);
 // 点击遮罩关闭
 searchMask.addEventListener('click', function(e){
     if(e.target === searchMask) closeModal();
 })
-// 核心搜索函数（修改：新标签打开，搜索后清空输入框）
+
+// 核心搜索函数
 function doSearch() {
     let keyword = searchInput.value.trim().toLowerCase();
     searchInput.value = '';
@@ -744,6 +766,7 @@ function doSearch() {
     })
     searchMask.style.display = 'flex';
 }
+
 // 点击搜索按钮
 searchBtn.addEventListener('click', doSearch);
 // 回车搜索
@@ -754,5 +777,3 @@ searchInput.addEventListener('keydown', function(e) {
 });
 });
 </script>
-</body>
-</html>
