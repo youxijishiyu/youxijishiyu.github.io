@@ -214,22 +214,22 @@ padding: 30px 0;
 color: #777;
 font-size: 16px;
 }
-/* 左侧赞助模块 */
+
+/* 赞助模块 修复PC端不显示问题 */
 .sponsor-box {
     position: absolute;
-    left:24px;
-    top:50%;
+    z-index: 10;
+    left:16px;
+    top: 50%;
     transform: translateY(-50%);
-    z-index: 3;
     background:rgba(0,0,0,0.65);
-    padding:20px 18px;
+    padding:16px 14px;
     border-radius:12px;
 }
-/* 赞助头像 */
 .sponsor-avatar {
     width: 38px;
     height: 38px;
-    margin: 0 auto 12px;
+    margin: 0 auto 10px;
     border-radius: 50%;
     overflow: hidden;
     border: 2px solid #ffffff;
@@ -242,22 +242,22 @@ font-size: 16px;
 }
 .sponsor-box h4 {
     color:#fff;
-    font-size:20px;
-    margin-bottom:14px;
+    font-size:16px;
+    margin-bottom:10px;
     text-align:center;
 }
 .sponsor-buttons {
     display:flex;
     flex-direction:column;
-    gap:10px;
+    gap:8px;
 }
 .sponsor-btn {
     text-decoration:none;
     text-align:center;
-    padding:10px 14px;
+    padding:8px 12px;
     border-radius:8px;
     font-weight:bold;
-    font-size:15px;
+    font-size:14px;
     transition:0.2s;
 }
 .wx-btn {
@@ -271,6 +271,7 @@ font-size: 16px;
 .sponsor-btn:hover {
     opacity:0.85;
 }
+
 /* 移动端适配 */
 @media (max-width: 768px) {
 .banner {
@@ -302,25 +303,25 @@ font-size:15px;
     .sponsor-box {
         position:absolute;
         left:50%;
-        top:14px;
+        top:12px;
         transform:translateX(-50%);
-        padding:10px 14px;
+        padding:8px 12px;
     }
     .sponsor-avatar {
-        width: 32px;
-        height: 32px;
-        margin:0 auto 8px;
+        width: 30px;
+        height: 30px;
+        margin:0 auto 6px;
     }
     .sponsor-box h4 {
-        font-size:16px;
-        margin-bottom:8px;
+        font-size:14px;
+        margin-bottom:6px;
     }
     .sponsor-buttons {
         flex-direction:row;
     }
     .sponsor-btn {
-        padding:7px 10px;
-        font-size:13px;
+        padding:6px 8px;
+        font-size:12px;
     }
 }
 </style>
@@ -328,7 +329,7 @@ font-size:15px;
 <body>
 <!-- 顶部横幅背景区域+搜索框 +左侧赞助模块 -->
 <div class="banner">
-    <!-- 左侧赞助模块 -->
+    <!-- 赞助模块，放在banner内部最前面 -->
     <div class="sponsor-box">
         <div class="sponsor-avatar">
             <img src="img/tx/01.jpg" alt="头像">
