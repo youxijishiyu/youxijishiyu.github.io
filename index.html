@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Gaem及时雨游戏库</title>
+<!-- 修复 favicon.ico 404，阻止浏览器自动请求缺失图标 -->
+<link rel="icon" href="data:,">
 <style>
 * {
 margin: 0;
@@ -215,10 +217,10 @@ color: #777;
 font-size: 16px;
 }
 
-/* 赞助模块 修复PC端不显示问题 */
+/* 赞助模块 fixed悬浮，PC端稳定可见 */
 .sponsor-box {
-    position: absolute;
-    z-index: 10;
+    position: fixed;
+    z-index: 999;
     left:16px;
     top: 50%;
     transform: translateY(-50%);
@@ -300,6 +302,7 @@ font-size: 17px;
 padding: 12px;
 font-size:15px;
 }
+    /* 手机端覆盖fixed，移到banner顶部 */
     .sponsor-box {
         position:absolute;
         left:50%;
@@ -327,9 +330,9 @@ font-size:15px;
 </style>
 </head>
 <body>
-<!-- 顶部横幅背景区域+搜索框 +左侧赞助模块 -->
+<!-- 顶部横幅背景区域+搜索框 -->
 <div class="banner">
-    <!-- 赞助模块，放在banner内部最前面 -->
+    <!-- 赞助模块 -->
     <div class="sponsor-box">
         <div class="sponsor-avatar">
             <img src="img/tx/01.jpg" alt="头像">
