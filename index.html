@@ -31,7 +31,7 @@ justify-content: center;
 content: "";
 position: absolute;
 inset: 0;
-background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0.65));
+background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.65));
 }
 .banner-content {
 z-index: 2;
@@ -115,7 +115,7 @@ color:inherit;
 background: #fff;
 border-radius: 12px;
 overflow: hidden;
-box-shadow: 0 3px 12px rgba(0,0,0.07);
+box-shadow: 0 3px 12px rgba(0,0,0,0.07);
 transition: transform 0.25s ease, box-shadow 0.25s;
 }
 .game-card:hover {
@@ -214,6 +214,63 @@ padding: 30px 0;
 color: #777;
 font-size: 16px;
 }
+/* 左侧赞助模块 */
+.sponsor-box {
+    position: absolute;
+    left:24px;
+    top:50%;
+    transform: translateY(-50%);
+    z-index: 3;
+    background:rgba(0,0,0,0.65);
+    padding:20px 18px;
+    border-radius:12px;
+}
+/* 赞助头像 */
+.sponsor-avatar {
+    width: 38px;
+    height: 38px;
+    margin: 0 auto 12px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid #ffffff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.35);
+}
+.sponsor-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.sponsor-box h4 {
+    color:#fff;
+    font-size:20px;
+    margin-bottom:14px;
+    text-align:center;
+}
+.sponsor-buttons {
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+.sponsor-btn {
+    text-decoration:none;
+    text-align:center;
+    padding:10px 14px;
+    border-radius:8px;
+    font-weight:bold;
+    font-size:15px;
+    transition:0.2s;
+}
+.wx-btn {
+    background:#07c160;
+    color:#fff;
+}
+.zfb-btn {
+    background:#1677ff;
+    color:#fff;
+}
+.sponsor-btn:hover {
+    opacity:0.85;
+}
 /* 移动端适配 */
 @media (max-width: 768px) {
 .banner {
@@ -240,14 +297,49 @@ font-size: 17px;
 }
 .match-item {
 padding: 12px;
-font-size: 15px;
+font-size:15px;
 }
+    .sponsor-box {
+        position:absolute;
+        left:50%;
+        top:14px;
+        transform:translateX(-50%);
+        padding:10px 14px;
+    }
+    .sponsor-avatar {
+        width: 32px;
+        height: 32px;
+        margin:0 auto 8px;
+    }
+    .sponsor-box h4 {
+        font-size:16px;
+        margin-bottom:8px;
+    }
+    .sponsor-buttons {
+        flex-direction:row;
+    }
+    .sponsor-btn {
+        padding:7px 10px;
+        font-size:13px;
+    }
 }
 </style>
 </head>
 <body>
-<!-- 顶部横幅背景区域+搜索框 -->
+<!-- 顶部横幅背景区域+搜索框 +左侧赞助模块 -->
 <div class="banner">
+    <!-- 左侧赞助模块 -->
+    <div class="sponsor-box">
+        <div class="sponsor-avatar">
+            <img src="img/tx/01.jpg" alt="头像">
+        </div>
+        <h4>感谢你赞助我</h4>
+        <div class="sponsor-buttons">
+            <a href="img/wx/01.jpg" target="_blank" class="sponsor-btn wx-btn">微信赞助</a>
+            <a href="img/zfb/01.jpg" target="_blank" class="sponsor-btn zfb-btn">支付宝赞助</a>
+        </div>
+    </div>
+
 <div class="banner-content">
 <h1>Gaem及时雨游戏库</h1>
 <div class="search-box">
@@ -665,7 +757,6 @@ const gameDatabase = [
     { "name": "使命召唤19：现代战争2", "url": "cod19.html" },
     { "name": "使命召唤20：现代战争3", "url": "cod20.html" },
     { "name": "使命召唤21：黑色行动6", "url": "cod21.html" },
-
     { "name": "致命躯壳2Mortal Shell II", "url": "mortalshell2.html" },
     { "name": "漫威斗魂MARVEL Tōkon: Fighting Souls", "url": "marvelbrawl.html" },
     { "name": "暗星铁律Pax Autocratica", "url": "darkironlaw.html" },
@@ -683,7 +774,7 @@ const gameDatabase = [
     { "name": "披萨店主模拟器Pizza Man Simulator", "url": "pizzashopsim.html" },
     { "name": "古冢：克苏鲁凶兆The Mound: Omen of Cthulhu", "url": "tombcthulhu.html" },
     { "name": "堕落之主Lords of the Fallen", "url": "fallenlords.html" },
-    { "name": "西伯利亚铁路模拟器Trans-Siberian Railway Simulator", "url": "siberianrailsim.html" },
+    { "name": "西伯利亚铁路模拟器Trans‑Siberian Railway Simulator", "url": "siberianrailsim.html" },
     { "name": "收获日2PAYDAY 2", "url": "payday2.html" },
     { "name": "大侠立志传：碧血丹心", "url": "daxialegend.html" },
     { "name": "末日准备狂MrPrepper", "url": "domereadyprep.html" },
@@ -722,27 +813,23 @@ const gameDatabase = [
     { "name": "堆叠妖怪Stackmon", "url": "stackmonster.html" },
     { "name": "方舟远航Exark", "url": "exarkgame.html" }
 ];
-
 // DOM元素获取
 const searchInput = document.getElementById('searchInput');
 const searchBtn = document.getElementById('searchBtn');
 const searchMask = document.getElementById('searchMask');
 const modalBody = document.getElementById('modalBody');
 const closeSearchModal = document.getElementById('closeSearchModal');
-
 // 关闭弹窗函数
 function closeModal(){
     searchMask.style.display = 'none';
     modalBody.innerHTML = '';
 }
-
 // 关闭按钮点击
 closeSearchModal.addEventListener('click', closeModal);
 // 点击遮罩关闭
 searchMask.addEventListener('click', function(e){
     if(e.target === searchMask) closeModal();
 })
-
 // 核心搜索函数
 function doSearch() {
     let keyword = searchInput.value.trim().toLowerCase();
@@ -776,7 +863,6 @@ function doSearch() {
     })
     searchMask.style.display = 'flex';
 }
-
 // 点击搜索按钮
 searchBtn.addEventListener('click', doSearch);
 // 回车搜索
@@ -787,3 +873,5 @@ searchInput.addEventListener('keydown', function(e) {
 });
 });
 </script>
+</body>
+</html>
