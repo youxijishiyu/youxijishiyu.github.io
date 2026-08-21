@@ -3,8 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gaem及时雨游戏库</title>
-<link rel="icon" href="data:,">
+<title>Game及时雨游戏库</title>
 <style>
 * {
 margin: 0;
@@ -27,6 +26,7 @@ flex-direction: column;
 align-items: center;
 justify-content: center;
 }
+/* 深色遮罩，保证文字清晰 */
 .banner::after {
 content: "";
 position: absolute;
@@ -44,6 +44,7 @@ font-size: 36px;
 margin-bottom: 32px;
 text-shadow: 0 2px 12px #0008;
 }
+/* 搜索框样式 */
 .search-box {
 display: flex;
 width: 100%;
@@ -72,11 +73,13 @@ transition: 0.25s;
 .search-box button:hover {
 opacity: 0.9;
 }
+/* 页面内容容器 */
 .container {
 max-width: 1320px;
 margin: 0 auto;
 padding: 60px 20px;
 }
+/* 游戏分区通用样式 */
 .game-section {
 margin-bottom: 56px;
 }
@@ -99,6 +102,7 @@ font-weight: 500;
 .more-btn:hover {
 text-decoration: underline;
 }
+/* 游戏卡片网格布局 */
 .game-list {
 display: grid;
 grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
@@ -118,6 +122,7 @@ transition: transform 0.25s ease, box-shadow 0.25s;
 transform: translateY(-6px);
 box-shadow: 0 8px 24px rgba(183, 38, 216, 0.16);
 }
+/* 游戏封面占位图 */
 .game-card .pic {
 height: 140px;
 background: linear-gradient(135deg, #e0e7ff, #c7d2fe);
@@ -209,21 +214,22 @@ padding: 30px 0;
 color: #777;
 font-size: 16px;
 }
-
-/* ========== 赞助模块【还原：relative，放在banner内部右上角，不fixed悬浮！】 ========== */
+/* 左侧赞助模块 */
 .sponsor-box {
     position: absolute;
+    left:24px;
+    top:50%;
+    transform: translateY(-50%);
     z-index: 3;
-    right:16px;
-    top:16px;
     background:rgba(0,0,0,0.65);
-    padding:16px 14px;
+    padding:20px 18px;
     border-radius:12px;
 }
+/* 赞助头像 */
 .sponsor-avatar {
     width: 38px;
     height: 38px;
-    margin: 0 auto 10px;
+    margin: 0 auto 12px;
     border-radius: 50%;
     overflow: hidden;
     border: 2px solid #ffffff;
@@ -236,24 +242,23 @@ font-size: 16px;
 }
 .sponsor-box h4 {
     color:#fff;
-    font-size:16px;
-    margin-bottom:10px;
+    font-size:20px;
+    margin-bottom:14px;
     text-align:center;
 }
 .sponsor-buttons {
     display:flex;
     flex-direction:column;
-    gap:8px;
+    gap:10px;
 }
 .sponsor-btn {
+    text-decoration:none;
     text-align:center;
-    padding:8px 12px;
+    padding:10px 14px;
     border-radius:8px;
     font-weight:bold;
-    font-size:14px;
+    font-size:15px;
     transition:0.2s;
-    border:none;
-    cursor:pointer;
 }
 .wx-btn {
     background:#07c160;
@@ -266,47 +271,6 @@ font-size: 16px;
 .sponsor-btn:hover {
     opacity:0.85;
 }
-
-/* ==========赞助二维码弹窗 ========== */
-.sponsor-modal {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background-color: rgba(0,0,0,0.82);
-    z-index: 10000;
-    align-items: center;
-    justify-content: center;
-}
-.sponsor-modal-box {
-    background:#1c1c1c;
-    padding:20px;
-    border-radius:12px;
-    text-align:center;
-    max-width:340px;
-    width:90%;
-}
-.sponsor-modal-box h4{
-    color:#fff;
-    margin-bottom:14px;
-    font-size:17px;
-}
-.sponsor-modal-box img{
-    width:260px;
-    border-radius:8px;
-    margin-bottom:16px;
-    /*强制图片可见，防止样式继承隐藏 */
-    display:block;
-    opacity:1;
-}
-.sponsor-modal-close{
-    padding:8px 22px;
-    border:none;
-    border-radius:6px;
-    background:#444;
-    color:#fff;
-    cursor:pointer;
-}
-
 /* 移动端适配 */
 @media (max-width: 768px) {
 .banner {
@@ -335,68 +299,56 @@ font-size: 17px;
 padding: 12px;
 font-size:15px;
 }
-    /*手机端赞助盒子移到banner顶部居中 */
     .sponsor-box {
         position:absolute;
         left:50%;
-        right:auto;
-        top:12px;
+        top:14px;
         transform:translateX(-50%);
-        padding:8px 12px;
+        padding:10px 14px;
     }
     .sponsor-avatar {
-        width: 30px;
-        height: 30px;
-        margin:0 auto 6px;
+        width: 32px;
+        height: 32px;
+        margin:0 auto 8px;
     }
     .sponsor-box h4 {
-        font-size:14px;
-        margin-bottom:6px;
+        font-size:16px;
+        margin-bottom:8px;
     }
     .sponsor-buttons {
         flex-direction:row;
     }
     .sponsor-btn {
-        padding:6px 8px;
-        font-size:12px;
+        padding:7px 10px;
+        font-size:13px;
     }
 }
 </style>
 </head>
 <body>
+<!-- 顶部横幅背景区域+搜索框 +左侧赞助模块 -->
 <div class="banner">
-    <!-- 赞助模块：absolute定位，在banner内部右上角，不再fixed悬浮 -->
+    <!-- 左侧赞助模块 -->
     <div class="sponsor-box">
         <div class="sponsor-avatar">
             <img src="img/tx/01.jpg" alt="头像">
         </div>
         <h4>感谢你赞助我</h4>
         <div class="sponsor-buttons">
-            <button class="sponsor-btn wx-btn" onclick="openSponsor('wx')">微信赞助</button>
-            <button class="sponsor-btn zfb-btn" onclick="openSponsor('zfb')">支付宝赞助</button>
+            <a href="img/wx/01.jpg" target="_blank" class="sponsor-btn wx-btn">微信赞助</a>
+            <a href="img/zfb/01.jpg" target="_blank" class="sponsor-btn zfb-btn">支付宝赞助</a>
         </div>
     </div>
 
 <div class="banner-content">
-<h1>Gaem及时雨游戏库</h1>
+<h1>Game及时雨游戏库</h1>
 <div class="search-box">
 <input id="searchInput" type="text" placeholder="输入游戏名称搜索...">
 <button id="searchBtn">搜索</button>
 </div>
 </div>
 </div>
-
-<!-- =========赞助弹窗DOM ========= -->
-<div class="sponsor-modal" id="sponsorModal">
-    <div class="sponsor-modal-box">
-        <h4 id="sponsorModalTitle">二维码</h4>
-        <img id="sponsorModalImg" alt="赞助二维码">
-        <br>
-        <button class="sponsor-modal-close" onclick="closeSponsor()">关闭</button>
-    </div>
-</div>
-
-<!-- 搜索弹窗 -->
+<!-- 搜索结果弹窗 -->
 <div class="search-mask" id="searchMask">
 <div class="search-modal">
 <div class="modal-head">
@@ -404,11 +356,13 @@ font-size:15px;
 <button class="close-modal" id="closeSearchModal">×</button>
 </div>
 <div class="modal-body" id="modalBody">
+<!-- 匹配项JS动态生成 -->
 </div>
 </div>
 </div>
-
+<!-- 所有游戏分区全部包裹在container内部 -->
 <div class="container">
+    <!-- 1.D加密游戏分区 -->
     <div class="game-section">
     <div class="section-head">
     <h2>🎯 D加密游戏分区 · 需设置虚拟机</h2>
@@ -453,7 +407,7 @@ font-size:15px;
     </a>
     </div>
     </div>
-
+    <!-- 2.热门游戏分区 -->
     <div class="game-section">
     <div class="section-head">
     <h2>🔥 热门游戏分区</h2>
@@ -498,7 +452,7 @@ font-size:15px;
     </a>
     </div>
     </div>
-
+    <!-- 3.新增游戏分区 -->
     <div class="game-section">
     <div class="section-head">
     <h2>✨ 新增游戏分区</h2>
@@ -543,7 +497,7 @@ font-size:15px;
     </a>
     </div>
     </div>
-
+    <!-- 4.使命召唤系列分区 -->
     <div class="game-section">
     <div class="section-head">
     <h2>🎮 使命召唤系列</h2>
@@ -588,14 +542,13 @@ font-size:15px;
     </a>
     </div>
     </div>
-</div>
-
+</div> <!-- 关闭居中容器 -->
 <footer>
 © 2026 Gaem及时雨游戏库 All Rights Reserved
 </footer>
-
 <script>
 document.addEventListener('DOMContentLoaded', function(){
+// 完整游戏数据库｜修复黑神话链接 + 补齐全部使命召唤正传
 const gameDatabase = [
     { "name": "幽灵行动：荒野", "url": "wildlands.html" },
     { "name": "龙之信条2", "url": "dragon2.html" },
@@ -609,7 +562,7 @@ const gameDatabase = [
     { "name": "刺客信条：奥德赛", "url": "ac_odyssey.html" },
     { "name": "刺客信条：起源", "url": "ac_origins.html" },
     { "name": "鬼灭之刃：火之神血风谭", "url": "demonslayer1.html" },
-    { "name": "刺客信条：黑旗", "url": "acblackflag.html" },
+    { "name": "刺客信条：黑旗 记忆重置", "url": "acblackflag.html" },
     { "name": "心灵杀手2", "url": "alanwake2.html" },
     { "name": "纪元117：罗马和平", "url": "anno117.html" },
     { "name": "战锤西格玛时代：毁灭之国", "url": "aos_destruction.html" },
@@ -762,51 +715,162 @@ const gameDatabase = [
     { "name": "欧洲卡车模拟2", "url": "ets2.html" },
     { "name": "霍格沃茨之遗", "url": "hogwartslegacy.html" },
     { "name": "土豆兄弟", "url": "potatobrother.html" },
-    { "name": "巫师3狂猎", "url": "witcher3.html" },
-    { "name": "森林之子", "url": "sonsoftheforest.html" },
-    { "name": "逃离塔科夫", "url": "escapefromtarkov.html" },
-    { "name": "七日杀", "url": "7daystodie.html" },
-    { "name": "钢铁雄心4", "url": "hoi4.html" },
-    { "name": "群星", "url": "stellaris.html" },
-    { "name": "消逝的光芒2", "url": "dyinglight2.html" },
-    { "name": "消逝的光芒困兽", "url": "dyinglightbeast.html" },
-    { "name": "严阵以待", "url": "readyornot.html" },
-    { "name": "全面战争罗马2", "url": "totalwarrome2.html" },
-    { "name": "十字军之王3", "url": "ck3.html" },
-    { "name": "车祸模拟器BeamNG", "url": "beamngdrive.html" },
-    { "name": "无主之地3", "url": "borderlands3.html" },
+    { "name": "巫师3：狂猎", "url": "witcher3.html" },
+    { "name": "森林之子Sons Of The Forest", "url": "sonsoftheforest.html" },
+    { "name": "逃离塔科夫Escape from Tarkov", "url": "escapefromtarkov.html" },
+    { "name": "七日杀7 Days To Die", "url": "7daystodie.html" },
+    { "name": "钢铁雄心4Hearts of Iron IV", "url": "hoi4.html" },
+    { "name": "群星Stellaris", "url": "stellaris.html" },
+    { "name": "消逝的光芒2Dying Light 2", "url": "dyinglight2.html" },
+    { "name": "消逝的光芒：困兽Dying Light The Beast", "url": "dyinglightbeast.html" },
+    { "name": "严阵以待Ready or Not", "url": "readyornot.html" },
+    { "name": "全面战争罗马2Total War: ROME II", "url": "totalwarrome2.html" },
+    { "name": "十字军之王3Crusader Kings III", "url": "ck3.html" },
+    { "name": "车祸模拟器BeamNG.drive", "url": "beamngdrive.html" },
+    { "name": "无主之地3Borderlands3", "url": "borderlands3.html" },
     { "name": "迷失Stray", "url": "stray.html" },
-    { "name": "僵尸世界大战劫后余生", "url": "worldwarz.html" },
-    { "name": "美国卡车模拟", "url": "ats.html" },
-    { "name": "天国拯救1高清版", "url": "kingdomcomedeliverancehd.html" },
-    { "name": "天国拯救2", "url": "kingdomcome2.html" },
-    { "name": "博德之门3", "url": "bg3.html" },
-    { "name": "只狼sekiro", "url": "sekiro.html" }
+    { "name": "僵尸世界大战：劫后余生World War Z", "url": "worldwarz.html" },
+    { "name": "美国卡车模拟American Truck Simulator", "url": "ats.html" },
+    { "name": "天国拯救1高清版Kingdom Come: Deliverance", "url": "kingdomcomedeliverancehd.html" },
+    { "name": "天国拯救2Kingdom Come: Deliverance II", "url": "kingdomcome2.html" },
+    { "name": "博德之门3Baldur's Gate 3", "url": "bg3.html" },
+    { "name": "只狼sekiro", "url": "sekiro.html" },
+    // 完整使命召唤系列
+    { "name": "使命召唤1Call of Duty 1", "url": "cod1.html" },
+    { "name": "使命召唤2Call of Duty 2", "url": "cod2.html" },
+    { "name": "使命召唤3Call of Duty 3", "url": "cod3.html" },
+    { "name": "使命召唤4：现代战争Call of Duty 4: Modern Warfare", "url": "cod4.html" },
+    { "name": "使命召唤4：现代战争 重制版Call of Duty: Modern Warfare Remastered", "url": "cod4remake.html" },
+    { "name": "使命召唤5：世界战争Call of Duty: World at War", "url": "cod5.html" },
+    { "name": "使命召唤6：现代战争2 重制版Call Of Duty: Modern Warfare 2 Campaign Remastered", "url": "cod6remake.html" },
+    { "name": "使命召唤6：现代战争2Call of Duty: Modern Warfare 2", "url": "cod6.html" },
+    { "name": "使命召唤7：黑色行动Call of Duty: Black Ops", "url": "cod7.html" },
+    { "name": "使命召唤8：现代战争3Call of Duty: Modern Warfare 3", "url": "cod8.html" },
+    { "name": "使命召唤9：黑色行动2Call of Duty: Black Ops II", "url": "cod9.html" },
+    { "name": "使命召唤10：幽灵Call of Duty: Ghosts", "url": "cod10.html" },
+    { "name": "使命召唤11：高级战争Call of Duty: Advanced Warfare", "url": "cod11.html" },
+    { "name": "使命召唤12：黑色行动3Call of Duty: Black Ops III", "url": "cod12.html" },
+    { "name": "使命召唤13：无限战争Call of Duty: Infinite Warfare", "url": "cod13.html" },
+    { "name": "使命召唤14：二战Call of Duty: WWII", "url": "cod14.html" },
+    { "name": "使命召唤15：黑色行动4Call of Duty: Black Ops 4", "url": "cod15.html" },
+    { "name": "使命召唤16：现代战争Call of Duty®: Modern Warfare®", "url": "cod16.html" },
+    { "name": "使命召唤17：黑色行动 冷战Call of Duty®: Black Ops Cold War", "url": "cod17.html" },
+    { "name": "使命召唤18：先锋Call of Duty®: Vanguard", "url": "cod18.html" },
+    { "name": "使命召唤19：现代战争2Call of Duty: Modern Warfare 2", "url": "cod19.html" },
+    { "name": "使命召唤20：现代战争3Call of Duty: Modern Warfare III", "url": "cod20.html" },
+    { "name": "使命召唤21：黑色行动6Call of Duty:Black Ops 6", "url": "cod21.html" },
+    { "name": "致命躯壳2Mortal Shell II", "url": "mortalshell2.html" },
+    { "name": "漫威斗魂MARVEL Tōkon: Fighting Souls", "url": "marvelbrawl.html" },
+    { "name": "暗星铁律Pax Autocratica", "url": "darkironlaw.html" },
+    { "name": "铁巢重炮Iron Nest Heavy Turret Simulator", "url": "ironcannon.html" },
+    { "name": "神之军火Arms of God", "url": "godarmor.html" },
+    { "name": "魔法门之英雄无敌：上古纪元Heroes of Might and Magic: Olden Era", "url": "heroesolderaeon.html" },
+    { "name": "永恒天空Forever Skies", "url": "eternalsky.html" },
+    { "name": "圣眷者Concubine", "url": "blessedone.html" },
+    { "name": "我有一堆录像带Archive Tidy Up Together", "url": "mytapes.html" },
+    { "name": "鲜花与众神Flowers and Deities", "url": "flowerandgod.html" },
+    { "name": "破晓之墟Ruins of Dawn", "url": "dawnruin.html" },
+    { "name": "女巫之血Witchblood", "url": "witchblood.html" },
+    { "name": "化学家：致命地带CHEMISTS: Dead Zone", "url": "chemistdeadzone.html" },
+    { "name": "妹妹，他人，妄想症Sister Other Paranoia", "url": "sisterotherdelusion.html" },
+    { "name": "披萨店主模拟器Pizza Man Simulator", "url": "pizzashopsim.html" },
+    { "name": "古冢：克苏鲁凶兆The Mound: Omen of Cthulhu", "url": "tombcthulhu.html" },
+    { "name": "堕落之主Lords of the Fallen", "url": "fallenlords.html" },
+    { "name": "西伯利亚铁路模拟器Trans‑Siberian Railway Simulator", "url": "siberianrailsim.html" },
+    { "name": "收获日2PAYDAY 2", "url": "payday2.html" },
+    { "name": "大侠立志传：碧血丹心", "url": "daxialegend.html" },
+    { "name": "末日准备狂MrPrepper", "url": "domereadyprep.html" },
+    { "name": "尼古丁商人模拟器Nicotine Merchant Simulator", "url": "nicotinemerchant.html" },
+    { "name": "敌意illWill", "url": "illwill.html" },
+    { "name": "典当行模拟器Pawnbroker Simulator", "url": "pawnshopsim.html" },
+    { "name": "机械荒庭Metal Garden", "url": "mechdesertgarden.html" },
+    { "name": "匕首指令Dagger Directive", "url": "daggerorder.html" },
+    { "name": "便利店大扫除Konbini Cleanup", "url": "convenienceclean.html" },
+    { "name": "恶校游戏Evil School", "url": "evilschoolgame.html" },
+    { "name": "雪葬Snowed Under", "url": "snowburial.html" },
+    { "name": "沉没之城2The Sinking City 2", "url": "sinkingcity2.html" },
+    { "name": "心之眼Mindseye", "url": "eyeoftheheart.html" },
+    { "name": "遗迹：第一守护者The Relic: First Guardian", "url": "relicfirstguardian.html" },
+    { "name": "终落之城All Will Fall", "url": "fallencity.html" },
+    { "name": "维多利亚3Victoria 3", "url": "victoria3.html" },
+    { "name": "虚拟小屋2Virtual Cottage 2", "url": "virtualhouse2.html" },
+    { "name": "少女与学院城Kotama and Academy Citadel", "url": "girlscollegecity.html" },
+    { "name": "龙之剑：觉醒DragonSword Awakening", "url": "dragonswordawake.html" },
+    { "name": "露玛岛Luma Island", "url": "lumaisland.html" },
+    { "name": "凯撒朋克KAISERPUNK", "url": "caesarpunk.html" },
+    { "name": "禁酒兽影PROHIBEAST", "url": "prohibitionbeastshadow.html" },
+    { "name": "剑盾模拟器Sword & Shield Simulator", "url": "swordshieldsim.html" },
+    { "name": "浣币模拟器Cash Cleaner Simulator", "url": "coinsim.html" },
+    { "name": "鬼子母Hariti", "url": "kishimojin.html" },
+    { "name": "光之战士", "url": "lightwarrior.html" },
+    { "name": "合成波狂飙Synthwave Burnout", "url": "synthwaveoverdrive.html" },
+    { "name": "生存日志Survival Log", "url": "survivallog.html" },
+    { "name": "放置领主Hearth and Hamlet", "url": "idlelord.html" },
+    { "name": "辐射4Fallout 4", "url": "fallout4.html" },
+    { "name": "劫后公司After Inc", "url": "postcollapseco.html" },
+    { "name": "纵横秘湾Corsair Cove", "url": "bayarcrypt.html" },
+    { "name": "消防模拟：火苗燃动Firefighting Simulator: Ignite", "url": "firesimburn.html" },
+    { "name": "暗黑地牢Darkest Dungeon", "url": "darkdungeon1.html" },
+    { "name": "井域：喀洛之血The World Well: Blood of Caro", "url": "wellkaloblood.html" },
+    { "name": "堆叠妖怪Stackmon", "url": "stackmonster.html" },
+    { "name": "方舟远航Exark", "url": "exarkgame.html" },
+    { "name": "潜行者2：切尔诺贝利之心S.T.A.L.K.E.R 2 Heart of Chornobyl", "url": "exarkgame.html" },
+    { "name": "共鸣：瘟疫传说传承Resonance: A Plague Tale Legacy - Preorder", "url": "resonanceplague.html" },
+    { "name": "一起玩农场2Farm Together 2", "url": "farmtogether2.html" },
+    { "name": "深渊之潮Abyssus", "url": "abysstide.html" },
+    { "name": "圣火守望者：共筑防线Sineus Arena", "url": "sacredguard.html" },
+    { "name": "俏皮脸Sally Face", "url": "sillyface.html" },
+    { "name": "桥梁建筑师3Poly Bridge 3", "url": "bridgeconstructor3.html" },
+    { "name": "霓虹深渊2Neon Abyss 2", "url": "neonabyss2.html" },
+    { "name": "降妖散记Yao-Guai Hunter", "url": "demonstory.html" },
+    { "name": "饭团店模拟Onigiri Shop Simulator", "url": "riceballsim.html" },
+    { "name": "服务区模拟器Rest Area Simulator", "url": "restareasim.html" },
+    { "name": "最后的加油站The Last Gas Station", "url": "lastgasstation.html" },
+    { "name": "最后的海盗：无人生还Last Pirates: Die Together", "url": "lastpirate.html" },
+    { "name": "遗忘国度：瓦林的召唤Forsaken Realms: Vahrin's Call", "url": "forgottenvalin.html" },
+    { "name": "战犬Warhounds", "url": "warhoundsgame.html" },
+    { "name": "天朝上国Celestial Empire", "url": "heavenkingdom.html" },
+    { "name": "中世纪马贩子模拟器Medieval Horse Dealer Simulator", "url": "medievalhorsesim.html" },
+    { "name": "蒸汽世界apor World: Over The Mind", "url": "steamworldgame.html" },
+    { "name": "又一个僵尸幸存者Yet Another Zombie Survivors", "url": "anotherzombiesurvivor.html" },
+    { "name": "深海迷航2：异星水域Subnautica 2", "url": "subnautica2.html" },
+    { "name": "泰拉瑞亚Terraria", "url": "terraria.html" },
+    { "name": "驱鬼：村庄Ghost Buster:Village", "url": "ghostvillage.html" },
+    { "name": "墨西哥忍者Mexican Ninja", "url": "mexiconinja.html" },
+    { "name": "命运石之门：重启STEINS;GATE RE:BOOT", "url": "steinsgateReboot.html" },
+    { "name": "披萨屋模拟器Pizza House Simulator", "url": "pizzahousesim.html" },
+    { "name": "恐怖黎明Grim Dawn", "url": "grimdawn.html" },
+    { "name": "梦魇牌Dreamcards", "url": "nightmarecard.html" },
+    { "name": "Submerge", "url": "submergegame.html" }
 ];
-
+// DOM元素获取
 const searchInput = document.getElementById('searchInput');
 const searchBtn = document.getElementById('searchBtn');
 const searchMask = document.getElementById('searchMask');
 const modalBody = document.getElementById('modalBody');
 const closeSearchModal = document.getElementById('closeSearchModal');
-
+// 关闭弹窗函数
 function closeModal(){
     searchMask.style.display = 'none';
     modalBody.innerHTML = '';
 }
+// 关闭按钮点击
 closeSearchModal.addEventListener('click', closeModal);
-searchMask.addEventListener('click',function(e){
+// 点击遮罩关闭
+searchMask.addEventListener('click', function(e){
     if(e.target === searchMask) closeModal();
 })
-
+// 核心搜索函数
 function doSearch() {
     let keyword = searchInput.value.trim().toLowerCase();
     searchInput.value = '';
+    console.log("输入关键词：", keyword);
     if (!keyword) {
         alert("请输入游戏名称再搜索！");
         return;
     }
     const matchList = gameDatabase.filter(item=> item.name.toLowerCase().includes(keyword));
+    console.log("匹配结果：", matchList);
     if(matchList.length === 0){
         alert("未找到该游戏，请更换关键词重试！");
         return;
@@ -815,6 +879,7 @@ function doSearch() {
         window.open(matchList[0].url, '_blank');
         return;
     }
+    // 渲染多条匹配
     modalBody.innerHTML = '';
     matchList.forEach(game=>{
         const itemDom = document.createElement('div');
@@ -828,42 +893,14 @@ function doSearch() {
     })
     searchMask.style.display = 'flex';
 }
+// 点击搜索按钮
 searchBtn.addEventListener('click', doSearch);
+// 回车搜索
 searchInput.addEventListener('keydown', function(e) {
-    if (e.key === 'Enter') doSearch();
+    if (e.key === 'Enter') {
+        doSearch();
+    }
 });
-
-// ==========赞助弹窗JS ==========
-const sponsorModal = document.getElementById('sponsorModal');
-const sponsorModalTitle = document.getElementById('sponsorModalTitle');
-const sponsorModalImg = document.getElementById('sponsorModalImg');
-
-function openSponsor(type){
-    console.log("触发赞助弹窗 type=",type);
-    if(type === 'wx'){
-        sponsorModalTitle.innerText = "微信扫码赞助";
-        sponsorModalImg.src = "img/wx/01.jpg";
-    }else if(type === 'zfb'){
-        sponsorModalTitle.innerText = "支付宝扫码赞助";
-        sponsorModalImg.src = "img/zfb/01.jpg";
-    }
-    sponsorModal.style.display = 'flex';
-}
-function closeSponsor(){
-    sponsorModal.style.display = 'none';
-    sponsorModalImg.src = "";
-}
-sponsorModal.addEventListener('click',function(e){
-    if (e.target === sponsorModal){
-        closeSponsor();
-    }
-})
-document.addEventListener('keydown',function(e){
-    if(e.key === "Escape"){
-        closeSponsor();
-    }
-})
-
 });
 </script>
 </body>
