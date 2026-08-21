@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>深渊之潮 中文版 - Game及时雨游戏库</title>
+<style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: system-ui, -apple-system, sans-serif;
+}
+body {
+background-color: #141418;
+color: #e8e8e8;
+line-height: 1.65;
+}
+.container {
+max-width: 920px;
+margin: 0 auto;
+padding: 30px 20px;
+}
+.back-btn {
+display: inline-block;
+color: #b726d8;
+text-decoration: none;
+margin-bottom: 24px;
+}
+.back-btn:hover {
+text-decoration: underline;
+}
+.download-area {
+display: flex;
+gap: 16px;
+flex-wrap: wrap;
+margin: 0 0 30px;
+}
+.download-btn {
+flex: 1;
+min-width: 180px;
+padding: 16px;
+border: none;
+border-radius: 9px;
+font-size: 16px;
+font-weight: bold;
+cursor: pointer;
+transition: 0.2s;
+}
+.baidu {
+background: #2874ff;
+color: white;
+}
+.zfb {
+background: #ff7922;
+color: white;
+}
+.download-btn:hover {
+opacity: 0.88;
+}
+.download-tip {
+width: 100%;
+color: #aaa;
+font-size: 14px;
+}
+.top-banner {
+width: 100%;
+border-radius: 10px;
+overflow: hidden;
+margin-bottom: 26px;
+}
+.top-banner img {
+width: 100%;
+display: block;
+object-fit: cover;
+}
+h1 {
+font-size: 24px;
+margin-bottom: 12px;
+}
+.tag-line {
+color: #aaa;
+margin-bottom: 24px;
+}
+.mask {
+position: fixed;
+inset: 0;
+background: rgba(0,0,0,0.75);
+display: none;
+align-items: center;
+justify-content: center;
+z-index: 999;
+}
+.popup-box {
+background: #1c1c22;
+padding: 26px;
+border-radius: 12px;
+text-align: center;
+max-width: 340px;
+width: 90%;
+}
+.popup-box h4 {
+margin-bottom: 16px;
+font-size: 18px;
+}
+.popup-box img {
+width: 240px;
+border-radius: 8px;
+margin-bottom: 18px;
+}
+.close-pop {
+padding: 9px 24px;
+border: none;
+border-radius: 6px;
+background: #444;
+color: #fff;
+cursor: pointer;
+}
+</style>
+</head>
+<body>
+<div class="container">
+    <a href="newgame.html" class="back-btn">← 返回新增游戏列表</a>
+    <div class="download-area">
+        <button class="download-btn baidu" onclick="showPopup('baidu')">百度网盘下载</button>
+        <button class="download-btn zfb" onclick="showPopup('quark')">夸克网盘下载</button>
+        <div class="download-tip">点击按钮弹出对应网盘二维码，扫码获取资源链接</div>
+    </div>
+    <h1>深渊之潮 v1.3.62817 中文版</h1>
+    <div class="tag-line">类型：水下冒险</div>
+    <div class="top-banner">
+        <img src="img/newgame/59.jpg" alt="深渊之潮">
+    </div>
+</div>
+<div class="mask" id="mask">
+    <div class="popup-box">
+        <h4 id="pop-title">网盘二维码</h4>
+        <img id="pop-qrcode" src="" alt="二维码">
+        <br>
+        <button class="close-pop" onclick="closePopup()">关闭</button>
+    </div>
+</div>
+<script>
+const mask = document.getElementById('mask');
+const popTitle = document.getElementById('pop-title');
+const popImg = document.getElementById('pop-qrcode');
+function showPopup(type) {
+    if (type === 'baidu') {
+        popTitle.innerText = "微信扫码！微信扫码！";
+        popImg.src = "img/abysstide/baidu_qr.jpg";
+    } else if (type === 'quark') {
+        popTitle.innerText = "微信扫码！微信扫码！";
+        popImg.src = "img/abysstide/quark_qr.jpg";
+    }
+    mask.style.display = 'flex';
+}
+function closePopup() {
+    mask.style.display = 'none';
+}
+mask.addEventListener('click', function(e) {
+    if (e.target === mask) closePopup();
+});
+</script>
+</body>
+</html>
