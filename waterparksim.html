@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>泰拉瑞亚 中文版 - Game及时雨游戏库</title>
+<title>水上乐园模拟器 中文版 - Gaem及时雨游戏库</title>
 <style>
 * {
 margin: 0;
@@ -126,10 +126,10 @@ cursor: pointer;
         <button class="download-btn zfb" onclick="showPopup('quark')">夸克网盘下载</button>
         <div class="download-tip">点击按钮弹出对应网盘二维码，扫码获取资源链接</div>
     </div>
-    <h1>泰拉瑞亚 v1.4.5.8 中文版 打包XG器</h1>
-    <div class="tag-line">类型：像素 建造 冒险</div>
+    <h1>水上乐园模拟器 v1.0.67 中文版</h1>
+    <div class="tag-line">类型：乐园建造经营</div>
     <div class="top-banner">
-        <img src="img/newgame/76.jpg" alt="泰拉瑞亚">
+        <img src="img/newgame/160.jpg" alt="水上乐园模拟器">
     </div>
 </div>
 <div class="mask" id="mask">
@@ -144,22 +144,18 @@ cursor: pointer;
 const mask = document.getElementById('mask');
 const popTitle = document.getElementById('pop-title');
 const popImg = document.getElementById('pop-qrcode');
-function showPopup(type) {
-    if (type === 'baidu') {
-        popTitle.innerText = "微信扫码！微信扫码！";
-        popImg.src = "img/terraria/baidu_qr.jpg";
-    } else if (type === 'quark') {
-        popTitle.innerText = "微信扫码！微信扫码！";
-        popImg.src = "img/terraria/quark_qr.jpg";
+function showPopup(type){
+    if(type==='baidu'){
+        popTitle.innerText="微信扫码！微信扫码！";
+        popImg.src="img/waterparksim/baidu_qr.jpg";
+    }else if(type==='quark'){
+        popTitle.innerText="微信扫码！微信扫码！";
+        popImg.src="img/waterparksim/quark_qr.jpg";
     }
-    mask.style.display = 'flex';
+    mask.style.display='flex';
 }
-function closePopup() {
-    mask.style.display = 'none';
-}
-mask.addEventListener('click', function(e) {
-    if (e.target === mask) closePopup();
-});
+function closePopup(){mask.style.display='none';}
+mask.addEventListener('click',e=>{if(e.target===mask)closePopup();})
 </script>
 </body>
 </html>
