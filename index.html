@@ -91,6 +91,13 @@ font-size: 22px;
 border-left: 5px solid #b827d9;
 padding-left: 14px;
 }
+.section-desc{
+width:100%;
+margin-top:8px;
+padding-left:19px;
+color:#666;
+font-size:14px;
+}
 .more-btn {
 color: #b726d8;
 text-decoration: none;
@@ -141,6 +148,90 @@ white-space: nowrap;
 font-size: 13px;
 color: #777;
 }
+
+/* ========== 实用工具类栏目容器 ========== */
+.tool-section {
+    margin-bottom: 56px;
+    padding: 24px;
+    background: linear-gradient(135deg, #f0f4ff, #e8ecff);
+    border: 1px solid #b726d825;
+    border-radius: 16px;
+}
+
+.tool-section .section-head h2 {
+    font-size: 22px;
+    border-left: 5px solid #b827d9;
+    padding-left: 14px;
+    color: #222;
+}
+
+.tool-section .section-desc {
+    margin-top: 8px;
+    padding-left: 19px;
+    color: #666;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* ========== 工具卡片网格 ========== */
+.tool-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin-top: 22px;
+}
+
+/* ========== 工具卡片 ========== */
+.tool-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    background: #ffffff;
+    border: 1px solid #b726d830;
+    border-radius: 12px;
+    padding: 16px;
+    transition: 0.22s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.tool-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(183, 38, 216, 0.15);
+    border-color: #b726d8;
+}
+
+/* ========== 工具图标区域 ========== */
+.tool-icon {
+    width: 100%;
+    height: 130px;
+    border-radius: 10px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #dbe8ff, #c0d8ff);
+    margin-bottom: 14px;
+}
+
+.tool-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ========== 工具文字信息 ========== */
+.tool-info h3 {
+    font-size: 16px;
+    color: #881fb8;
+    margin-bottom: 6px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.tool-info p {
+    font-size: 13px;
+    color: #5572b8;
+    line-height: 1.5;
+}
+
 footer {
 text-align: center;
 padding: 30px;
@@ -209,7 +300,6 @@ padding: 30px 0;
 color: #777;
 font-size: 16px;
 }
-
 /* ========== 赞助模块【banner内部absolute，不跟随滚动悬浮】 ========== */
 .sponsor-box {
     position: absolute;
@@ -266,7 +356,6 @@ font-size: 16px;
 .sponsor-btn:hover {
     opacity:0.85;
 }
-
 /* ========== 赞助弹窗：两个独立弹窗 ========== */
 .sponsor-modal {
     display: none;
@@ -304,7 +393,6 @@ font-size: 16px;
     color:#fff;
     cursor:pointer;
 }
-
 /* 移动端适配 */
 @media (max-width: 768px) {
 .banner {
@@ -358,6 +446,19 @@ font-size:15px;
         padding:6px 8px;
         font-size:12px;
     }
+    .tool-section {
+        padding: 18px;
+    }
+    .tool-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+    }
+    .tool-icon {
+        height: 110px;
+    }
+    .tool-info h3 {
+        font-size: 15px;
+    }
 }
 </style>
 </head>
@@ -374,7 +475,6 @@ font-size:15px;
             <button class="sponsor-btn zfb-btn" onclick="openZfb()">支付宝赞助</button>
         </div>
     </div>
-
 <div class="banner-content">
 <h1>Game及时雨游戏库</h1>
 <div class="search-box">
@@ -383,8 +483,7 @@ font-size:15px;
 </div>
 </div>
 </div>
-
-<!-- =========微信赞助弹窗（写死图片，不JS动态换src） ========= -->
+<!-- =========微信赞助弹窗 ========= -->
 <div class="sponsor-modal" id="wxModal">
     <div class="sponsor-modal-box">
         <h4>微信扫码赞助</h4>
@@ -393,8 +492,7 @@ font-size:15px;
         <button class="sponsor-modal-close" onclick="closeWx()">关闭</button>
     </div>
 </div>
-
-<!-- =========支付宝赞助弹窗（写死图片，不JS动态换src） ========= -->
+<!-- =========支付宝赞助弹窗 ========= -->
 <div class="sponsor-modal" id="zfbModal">
     <div class="sponsor-modal-box">
         <h4>支付宝扫码赞助</h4>
@@ -403,7 +501,6 @@ font-size:15px;
         <button class="sponsor-modal-close" onclick="closeZfb()">关闭</button>
     </div>
 </div>
-
 <!-- 搜索弹窗 -->
 <div class="search-mask" id="searchMask">
 <div class="search-modal">
@@ -415,7 +512,6 @@ font-size:15px;
 </div>
 </div>
 </div>
-
 <div class="container">
     <div class="game-section">
     <div class="section-head">
@@ -598,9 +694,56 @@ font-size:15px;
     </div>
 </div>
 
-<footer>
-© 2026 Gaem及时雨游戏库 All Rights Reserved
-</footer>
+<!-- ==========🧰 实用工具类【独立板块，不再复用game-list】 ========== -->
+    <div class="tool-section">
+        <div class="section-head">
+            <h2>🧰 实用工具类</h2>
+        </div>
+        <div class="section-desc">
+            设计办公、工程绘图、三维建模、产品原型等软件工具资源，非游戏资源
+        </div>
+        <div class="tool-grid">
+            <a href="adobeall.html" target="_blank" class="tool-card">
+                <div class="tool-icon">
+                    <img src="img/adobea/01.jpg" alt="Adobe 全家桶">
+                </div>
+                <div class="tool-info">
+                    <h3>Adobe 全家桶 2017-2026版本</h3>
+                    <p>Photoshop / PR / AE / AI</p>
+                </div>
+            </a>
+            <a href="cad.html" target="_blank" class="tool-card">
+                <div class="tool-icon">
+                    <img src="img/adobea/02.jpg" alt="CAD">
+                </div>
+                <div class="tool-info">
+                    <h3>CAD</h3>
+                    <p>工程绘图 / 建筑制图</p>
+                </div>
+            </a>
+            <a href="ugnx.html" target="_blank" class="tool-card">
+                <div class="tool-icon">
+                    <img src="img/adobea/03.jpg" alt="UG NX">
+                </div>
+                <div class="tool-info">
+                    <h3>UG NX</h3>
+                    <p>三维建模 / 工业设计</p>
+                </div>
+            </a>
+            <a href="axurerp.html" target="_blank" class="tool-card">
+                <div class="tool-icon">
+                    <img src="img/adobea/04.jpg" alt="Axure RP">
+                </div>
+                <div class="tool-info">
+                    <h3>Axure RP</h3>
+                    <p>产品原型 / 交互设计</p>
+                </div>
+            </a>
+        </div>
+    </div>
+
+</div>
+<footer>© Game及时雨游戏库</footer>
 
 <script>
 // 赞助弹窗函数，写在最外层，onclick直接调用，不包在DOMContentLoaded里面！
