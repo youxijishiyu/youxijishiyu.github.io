@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>新增游戏分区 - Gaem及时雨游戏库</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
 <style>
 * {
 margin: 0;
@@ -341,7 +342,6 @@ gap: 16px;
                 <p>9.1日入库</p>
             </div>
         </a>
-
         <!-- ==========【新增：9.2日入库，放在碧蓝幻想：Relink之后，图片序号从243开始】 ========== -->
         <a href="bodycamgame.html" target="_blank" class="game-card">
             <div class="pic">
@@ -595,7 +595,6 @@ gap: 16px;
                 <p>9.2日入库</p>
             </div>
         </a>
-
         <!-- ==========继续原来剩余9.1入库28款游戏 ========== -->
         <a href="moonslaykill.html" target="_blank" class="game-card">
             <div class="pic">
@@ -840,7 +839,6 @@ gap: 16px;
                 <p>9.1日入库</p>
             </div>
         </a>
-
         <!-- ==========【8.28日入库】 ========== -->
         <a href="nba2k27.html" target="_blank" class="game-card">
             <div class="pic">
@@ -1298,5 +1296,25 @@ gap: 16px;
 <footer>
 © Gaem及时雨游戏库
 </footer>
+<script>
+const cdnPrefix = "https://cdn.jsdelivr.net/gh/youxijishiyu/youxijishiyu.github.io@main/";
+const isLocal = window.location.protocol === "file:";
+
+document.addEventListener('DOMContentLoaded', function(){
+    const allImgs = document.querySelectorAll('img');
+    allImgs.forEach((img, idx)=>{
+        const oriSrc = img.getAttribute('src');
+        if(!oriSrc || oriSrc.startsWith('http')) return;
+
+        if(!isLocal){
+            img.src = cdnPrefix + oriSrc + "?v=20260904";
+        }
+        //前6张不懒加载，其余开启懒加载
+        if(idx >=6){
+            img.loading = "lazy";
+        }
+    });
+});
+</script>
 </body>
 </html>
