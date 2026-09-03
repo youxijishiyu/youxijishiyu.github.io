@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Game及时雨游戏库</title>
 <link rel="icon" href="data:,">
+<!-- jsDelivr预连接，加速CDN域名解析 -->
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
 <style>
 * {
 margin: 0;
@@ -148,7 +150,6 @@ white-space: nowrap;
 font-size: 13px;
 color: #777;
 }
-
 /* ========== 实用工具类栏目容器 ========== */
 .tool-section {
     margin-bottom: 56px;
@@ -157,14 +158,12 @@ color: #777;
     border: 1px solid #b726d825;
     border-radius: 16px;
 }
-
 .tool-section .section-head h2 {
     font-size: 22px;
     border-left: 5px solid #b827d9;
     padding-left: 14px;
     color: #222;
 }
-
 .tool-section .section-desc {
     margin-top: 8px;
     padding-left: 19px;
@@ -172,7 +171,6 @@ color: #777;
     font-size: 14px;
     line-height: 1.6;
 }
-
 /* ========== 工具卡片网格 ========== */
 .tool-grid {
     display: grid;
@@ -180,7 +178,6 @@ color: #777;
     gap: 18px;
     margin-top: 22px;
 }
-
 /* ========== 工具卡片 ========== */
 .tool-card {
     display: block;
@@ -193,13 +190,11 @@ color: #777;
     transition: 0.22s ease;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
-
 .tool-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 20px rgba(183, 38, 216, 0.15);
     border-color: #b726d8;
 }
-
 /* ========== 工具图标区域 ========== */
 .tool-icon {
     width: 100%;
@@ -209,13 +204,11 @@ color: #777;
     background: linear-gradient(135deg, #dbe8ff, #c0d8ff);
     margin-bottom: 14px;
 }
-
 .tool-icon img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
-
 /* ========== 工具文字信息 ========== */
 .tool-info h3 {
     font-size: 16px;
@@ -225,13 +218,11 @@ color: #777;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
-
 .tool-info p {
     font-size: 13px;
     color: #5572b8;
     line-height: 1.5;
 }
-
 footer {
 text-align: center;
 padding: 30px;
@@ -457,7 +448,7 @@ font-size:15px;
         height: 110px;
     }
     .tool-info h3 {
-        font-size: 15px;
+        font-size:15px;
     }
 }
 </style>
@@ -557,7 +548,6 @@ font-size:15px;
     </a>
     </div>
     </div>
-
     <div class="game-section">
     <div class="section-head">
     <h2>🔥 热门游戏分区</h2>
@@ -602,7 +592,6 @@ font-size:15px;
     </a>
     </div>
     </div>
-
     <div class="game-section">
     <div class="section-head">
     <h2>✨ 新增游戏分区</h2>
@@ -647,7 +636,6 @@ font-size:15px;
     </a>
     </div>
     </div>
-
     <div class="game-section">
     <div class="section-head">
     <h2>🎮 使命召唤系列</h2>
@@ -693,7 +681,6 @@ font-size:15px;
     </div>
     </div>
 </div>
-
 <!-- ==========🧰 实用工具类【独立板块，不再复用game-list】 ========== -->
 <div class="tool-section">
     <div class="section-head">
@@ -742,16 +729,37 @@ font-size:15px;
         </a>
     </div>
 </div>
-
-
 </div>
 <footer>© Game及时雨游戏库</footer>
 
 <script>
+// ========= CDN自动替换 + 原生懒加载脚本 =========
+const cdnPrefix = "https://cdn.jsdelivr.net/gh/youxijishiyu/youxijishiyu.github.io@main/";
+// 判断是否本地打开，本地就不启用CDN
+const isLocal = window.location.protocol === "file:";
+
+document.addEventListener('DOMContentLoaded', function(){
+    const allImgs = document.querySelectorAll('img');
+    allImgs.forEach((img, idx)=>{
+        const oriSrc = img.getAttribute('src');
+        // 只处理本地相对路径，http开头跳过
+        if(!oriSrc || oriSrc.startsWith('http')) return;
+
+        if(!isLocal){
+            // 替换为jsDelivr CDN地址
+            img.src = cdnPrefix + oriSrc;
+        }
+
+        // 前8张图片为首屏，不开启lazy；其余全部加上原生懒加载
+        if(idx >= 8){
+            img.loading = "lazy";
+        }
+    });
+});
+
 // 赞助弹窗函数，写在最外层，onclick直接调用，不包在DOMContentLoaded里面！
 const wxModal = document.getElementById('wxModal');
 const zfbModal = document.getElementById('zfbModal');
-
 function openWx(){
     wxModal.style.display = 'flex';
 }
@@ -764,7 +772,6 @@ function openZfb(){
 function closeZfb(){
     zfbModal.style.display = 'none';
 }
-
 // 点击遮罩关闭
 wxModal.addEventListener('click',function(e){
     if(e.target === wxModal) closeWx();
@@ -772,7 +779,6 @@ wxModal.addEventListener('click',function(e){
 zfbModal.addEventListener('click',function(e){
     if(e.target === zfbModal) closeZfb();
 })
-
 // ESC按键关闭两个弹窗
 document.addEventListener('keydown',function(e){
     if(e.key === "Escape"){
