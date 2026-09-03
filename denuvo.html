@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>D加密游戏分区 - Gaem及时雨游戏库</title>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
     <style>
         * {
             margin: 0;
@@ -951,5 +952,26 @@
     <footer>
         © 2026 Gaem及时雨游戏库 All Rights Reserved
     </footer>
+<script>
+const cdnPrefix = "https://cdn.jsdelivr.net/gh/youxijishiyu/youxijishiyu.github.io@main/";
+const isLocal = window.location.protocol === "file:";
+
+document.addEventListener('DOMContentLoaded', function(){
+    const allImgs = document.querySelectorAll('img');
+    allImgs.forEach((img, idx)=>{
+        const oriSrc = img.getAttribute('src');
+        if(!oriSrc || oriSrc.startsWith('http')) return;
+
+        if(!isLocal){
+            img.src = cdnPrefix + oriSrc + "?v=20260904";
+            img.crossorigin = "anonymous";
+        }
+        //前6张不懒加载，其余开启懒加载
+        if(idx >=6){
+            img.loading = "lazy";
+        }
+    });
+});
+</script>
 </body>
 </html>
