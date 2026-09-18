@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>全部实用工具 - Game及时雨游戏库</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: system-ui, -apple-system, sans-serif;
+}
+body {
+background-color: #f7f9fc;
+color: #333;
+}
+/* 和cod.html保持一致的顶部渐变头部 */
+.page-header {
+width:100%;
+background: linear-gradient(90deg,#b726d8,#3088ff);
+padding:42px 20px;
+text-align:center;
+color:#fff;
+}
+.page-header h1{
+font-size:32px;
+margin-bottom:12px;
+text-shadow:0 2px 10px #0005;
+}
+.page-header a{
+color:#fff;
+opacity:0.92;
+text-decoration:none;
+font-size:16px;
+}
+.page-header a:hover{
+text-decoration:underline;
+}
+.container {
+max-width: 1320px;
+margin: 0 auto;
+padding: 60px 20px;
+}
+.section-head {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: 28px;
+}
+.section-head h2 {
+font-size: 22px;
+border-left: 5px solid #b827d9;
+padding-left: 14px;
+}
+.section-desc{
+width:100%;
+margin-top:8px;
+padding-left:19px;
+color:#666;
+font-size:14px;
+margin-bottom:24px;
+}
+/* 工具网格卡片，沿用index工具卡片样式 */
+.tool-grid {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+gap: 24px;
+}
+.tool-card {
+display: block;
+text-decoration: none;
+color: inherit;
+background: #ffffff;
+border: 1px solid #b726d830;
+border-radius: 12px;
+overflow:hidden;
+transition: 0.22s ease;
+box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+.tool-card:hover {
+transform: translateY(-5px);
+box-shadow: 0 8px 20px rgba(183, 38, 216, 0.15);
+border-color: #b726d8;
+}
+.tool-icon {
+width: 100%;
+height: 140px;
+background: linear-gradient(135deg, #dbe8ff, #c0d8ff);
+}
+.tool-icon img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+}
+.tool-info {
+padding: 14px;
+}
+.tool-info h3 {
+font-size: 16px;
+color: #881fb8;
+margin-bottom: 6px;
+overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
+}
+.tool-info p {
+font-size: 13px;
+color: #5572b8;
+line-height: 1.5;
+}
+footer {
+text-align: center;
+padding: 30px;
+color: #888;
+font-size: 14px;
+}
+/*移动端适配 */
+@media (max-width: 768px) {
+.page-header h1{
+font-size:24px;
+}
+.container{
+padding:30px 15px;
+}
+.tool-grid {
+grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+gap: 16px;
+}
+}
+</style>
+</head>
+<body>
+<div class="page-header">
+    <h1>🧰 全部实用工具</h1>
+    <a href="index.html">← 返回首页</a>
+</div>
+<div class="container">
+    <div class="section-head">
+        <h2>软件工具合集</h2>
+    </div>
+    <div class="section-desc">
+        设计办公、工程绘图、三维建模、产品原型等软件工具资源，非游戏资源
+    </div>
+    <div class="tool-grid">
+        <!-- 首页已有的4个工具 -->
+        <a href="adobeall.html" target="_blank" class="tool-card">
+            <div class="tool-icon">
+                <img src="img/adobea/01.jpg" alt="Adobe 全家桶">
+            </div>
+            <div class="tool-info">
+                <h3>Adobe 全家桶</h3>
+                <p>Photoshop / PR / AE / AI</p>
+            </div>
+        </a>
+        <a href="cad.html" target="_blank" class="tool-card">
+            <div class="tool-icon">
+                <img src="img/adobea/02.jpg" alt="CAD">
+            </div>
+            <div class="tool-info">
+                <h3>CAD</h3>
+                <p>工程绘图 / 建筑制图</p>
+            </div>
+        </a>
+        <a href="ugnx.html" target="_blank" class="tool-card">
+            <div class="tool-icon">
+                <img src="img/adobea/03.jpg" alt="UG NX">
+            </div>
+            <div class="tool-info">
+                <h3>UG NX</h3>
+                <p>三维建模 / 工业设计</p>
+            </div>
+        </a>
+        <a href="axurerp.html" target="_blank" class="tool-card">
+            <div class="tool-icon">
+                <img src="img/adobea/04.jpg" alt="Axure RP">
+            </div>
+            <div class="tool-info">
+                <h3>Axure RP</h3>
+                <p>产品原型 / 交互设计</p>
+            </div>
+        </a>
+<!-- DLSS 5 Swapper -->
+<a href="dlss5swapper.html" target="_blank" class="tool-card">
+    <div class="tool-icon">
+        <img src="img/adobea/05.jpg" alt="DLSS 5 Swapper">
+    </div>
+    <div class="tool-info">
+        <h3>DLSS 5 Swapper</h3>
+        <p>游戏DLSS版本替换管理工具</p>
+    </div>
+</a>
+
+<!-- C4D全套软件 -->
+<a href="c4dall.html" target="_blank" class="tool-card">
+    <div class="tool-icon">
+        <img src="img/adobea/06.jpg" alt="C4D全套软件">
+    </div>
+    <div class="tool-info">
+        <h3>C4D全套软件</h3>
+        <p>Cinema4D三维动画渲染</p>
+    </div>
+</a>
+
+<!-- 3ds MAX 2009‑2027版 -->
+<a href="3dsmax.html" target="_blank" class="tool-card">
+    <div class="tool-icon">
+        <img src="img/adobea/07.jpg" alt="3ds MAX 2009‑2027版">
+    </div>
+    <div class="tool-info">
+        <h3>3ds MAX 2009‑2027版</h3>
+        <p>建模渲染、室内效果图制作</p>
+    </div>
+</a>
+    </div>
+</div>
+<footer>
+© 2026 Game及时雨游戏库 All Rights Reserved
+</footer>
+
+<script>
+// CDN图片替换逻辑，保留，无其他多余JS
+const cdnPrefix = "https://cdn.jsdelivr.net/gh/youxijishiyu/youxijishiyu.github.io@main/";
+const isLocal = window.location.protocol === "file:";
+document.addEventListener('DOMContentLoaded', function(){
+    const allImgs = document.querySelectorAll('img');
+    allImgs.forEach((img, idx)=>{
+        const oriSrc = img.getAttribute('src');
+        if(!oriSrc || oriSrc.startsWith('http')) return;
+        if(!isLocal){
+            img.src = cdnPrefix + oriSrc;
+        }
+        if(idx >= 8){
+            img.loading = "lazy";
+        }
+    });
+});
+</script>
+</body>
+</html>
