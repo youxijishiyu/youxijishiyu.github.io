@@ -1,0 +1,55 @@
+<!-- echoweaver.html｜回响编织者 -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>回响编织者 中文版 - Gaem及时雨游戏库</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui,sans-serif}
+body{background:#121212;color:#eee;line-height:1.6;padding:16px;max-width:900px;margin:0 auto}
+.back{display:inline-block;margin-bottom:16px;color:#42a5f5;text-decoration:none;font-size:18px}
+.cover{width:100%;border-radius:10px;margin-bottom:20px}
+h1{font-size:26px;margin-bottom:8px}
+.info-block{background:#1e1e1e;padding:16px;border-radius:10px;margin:16px 0}
+.info-block p{margin:6px 0;color:#ccc}
+.dl-group{display:flex;gap:12px;margin:20px 0;flex-wrap:wrap}
+.dl-btn{flex:1;min-width:140px;padding:14px;border:none;border-radius:8px;font-size:16px;cursor:pointer}
+.baidu{background:#2979ff;color:#fff}
+.quark{background:#ff9800;color:#111}
+.modal{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);display:none;align-items:center;justify-content:center;z-index:999}
+.modal-box{background:#1e1e1e;padding:20px;border-radius:12px;text-align:center;max-width:340px}
+.modal-box img{width:240px;margin:12px 0}
+.close{margin-top:12px;padding:8px 16px;border:none;border-radius:6px;cursor:pointer}
+</style>
+</head>
+<body>
+<a href="newgame.html" class="back">← 返回列表</a>
+<img class="cover" src="img/newgame/795.jpg" alt="回响编织者">
+<h1>回响编织者</h1>
+<div class="info-block">
+<p>类型：叙事 RPG</p>
+<p>版本：v1.0.0.52 中文版</p>
+<p>入库日期：10.9 日入库</p>
+<p>简介：叙事向RPG，在充满回声与记忆的世界冒险，收集回响碎片，揭开世界背后的故事真相。</p>
+</div>
+<div class="dl-group">
+<button class="dl-btn baidu" onclick="openModal('img/echoweaver/baidu_qr.jpg')">百度网盘</button>
+<button class="dl-btn quark" onclick="openModal('img/echoweaver/quark_qr.jpg')">夸克网盘</button>
+</div>
+<div class="modal" id="qrModal">
+<div class="modal-box">
+<h3>微信扫码！微信扫码！</h3>
+<img id="qrImg" src="" alt="二维码">
+<button class="close" onclick="closeModal()">关闭</button>
+</div>
+</div>
+<script>
+const modal=document.getElementById('qrModal');
+const qrImg=document.getElementById('qrImg');
+function openModal(src){qrImg.src=src;modal.style.display='flex'}
+function closeModal(){modal.style.display='none'}
+modal.onclick=e=>{if(e.target===modal)closeModal()}
+</script>
+</body>
+</html>
