@@ -118,6 +118,15 @@
         <h2 class="page-title">热门游戏分区</h2>
         <div class="game-list">
             <!-- 首页四款原有封面保留img/05~08 -->
+            <a href="onimusha.html" target="_blank" class="game-card">
+                <div class="pic">
+                    <img src="img/Denuvo/90.jpg" alt="EA SPORTS FC 27" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                <div class="info">
+                    <h3>鬼武者：剑之道</h3>
+                    <p>D加密 · Denuvo</p>
+                </div>
+            </a>
             <a href="wukong.html" target="_blank" class="game-card">
                 <div class="pic">
                     <img src="img/05.jpg" alt="黑神话：悟空">
@@ -1108,7 +1117,7 @@ document.addEventListener('DOMContentLoaded', function(){
         if(!oriSrc || oriSrc.startsWith('http')) return;
 
         if(!isLocal){
-            img.src = cdnPrefix + oriSrc + "?v=20261026";
+            img.src = cdnPrefix + oriSrc + "?v=20261101";
             img.crossorigin = "anonymous";
         }
         //前6张不懒加载，其余开启懒加载
