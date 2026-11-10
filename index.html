@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Game及时雨游戏库</title>
 <link rel="icon" href="data:,">
-<!-- jsDelivr预连接，加速CDN域名解析 -->
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
 <style>
 * {
@@ -18,7 +17,6 @@ body {
 background-color: #f7f9fc;
 color: #333;
 }
-/* 顶部Banner背景区域 */
 .banner {
 width: 100%;
 height: 520px;
@@ -73,6 +71,28 @@ transition: 0.25s;
 }
 .search-box button:hover {
 opacity: 0.9;
+}
+.group-btn-wrap {
+margin-bottom:16px;
+display:flex;
+gap:14px;
+justify-content:center;
+flex-wrap:wrap;
+}
+.group-btn {
+padding:12px 28px;
+border:none;
+border-radius:99px;
+background: linear-gradient(90deg,#b726d8,#3088ff);
+color:#fff;
+font-size:16px;
+cursor:pointer;
+transition:0.25s;
+box-shadow:0 0 16px #d828ff50;
+}
+.group-btn:hover {
+opacity:0.9;
+transform: translateY(-2px);
 }
 .container {
 max-width: 1320px;
@@ -150,7 +170,6 @@ white-space: nowrap;
 font-size: 13px;
 color: #777;
 }
-/* ========== 实用工具类栏目容器 ========== */
 .tool-section {
     margin-bottom: 56px;
     padding: 24px;
@@ -171,14 +190,12 @@ color: #777;
     font-size: 14px;
     line-height: 1.6;
 }
-/* ========== 工具卡片网格 ========== */
 .tool-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 18px;
     margin-top: 22px;
 }
-/* ========== 工具卡片 ========== */
 .tool-card {
     display: block;
     text-decoration: none;
@@ -195,7 +212,6 @@ color: #777;
     box-shadow: 0 8px 20px rgba(183, 38, 216, 0.15);
     border-color: #b726d8;
 }
-/* ========== 工具图标区域 ========== */
 .tool-icon {
     width: 100%;
     height: 130px;
@@ -209,7 +225,6 @@ color: #777;
     height: 100%;
     object-fit: cover;
 }
-/* ========== 工具文字信息 ========== */
 .tool-info h3 {
     font-size: 16px;
     color: #881fb8;
@@ -227,9 +242,8 @@ footer {
 text-align: center;
 padding: 30px;
 color: #888;
-font-size: 14px;
+font-size:14px;
 }
-/* ========== 搜索弹窗样式 ========== */
 .search-mask {
 position: fixed;
 inset: 0;
@@ -291,7 +305,131 @@ padding: 30px 0;
 color: #777;
 font-size: 16px;
 }
-/* ========== 赞助模块【banner内部absolute，不跟随滚动悬浮】 ========== */
+.group-mask {
+position: fixed;
+inset:0;
+background:rgba(0,0,0,0.65);
+display:none;
+z-index:10002;
+align-items:center;
+justify-content:center;
+}
+.group-modal {
+background:#fff;
+width:min(92%,500px);
+border-radius:16px;
+overflow:hidden;
+box-shadow:0 0 30px #b726d840;
+}
+.group-modal-head {
+padding:20px 24px;
+background:linear-gradient(90deg,#b726d8,#3088ff);
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+.group-modal-head h3 {
+color:#fff;
+font-size:20px;
+}
+.group-close {
+border:none;
+background:#ffffff33;
+color:#fff;
+width:32px;
+height:32px;
+border-radius:50%;
+cursor:pointer;
+font-size:18px;
+}
+.group-modal-body {
+max-height:60vh;
+overflow-y:auto;
+padding:16px 24px;
+}
+.group-top-tip {
+text-align:center;
+color:#b726d8;
+font-weight:bold;
+font-size:16px;
+padding:12px 0;
+border-bottom:1px solid #eee;
+margin-bottom:8px;
+}
+.group-item {
+padding:14px 16px;
+border-bottom:#eee solid 1px;
+cursor:pointer;
+transition:0.2s;
+}
+.group-item:last-child {
+border-bottom:none;
+}
+.group-item:hover {
+background:#f3eaff;
+color:#b726d8;
+}
+.group-number {
+margin-top:10px;
+padding:12px;
+background:#f3eaff;
+border-radius:8px;
+color:#b726d8;
+font-weight:bold;
+user-select:all;
+}
+/* 外链弹窗 */
+.link-mask {
+position: fixed;
+inset:0;
+background:rgba(0,0,0,0.65);
+display:none;
+z-index:10002;
+align-items:center;
+justify-content:center;
+}
+.link-modal {
+background:#fff;
+width:min(92%,500px);
+border-radius:16px;
+overflow:hidden;
+box-shadow:0 0 30px #b726d840;
+}
+.link-modal-head {
+padding:20px 24px;
+background:linear-gradient(90deg,#b726d8,#3088ff);
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+.link-modal-head h3 {
+color:#fff;
+font-size:20px;
+}
+.link-close {
+border:none;
+background:#ffffff33;
+color:#fff;
+width:32px;
+height:32px;
+border-radius:50%;
+cursor:pointer;
+font-size:18px;
+}
+.link-modal-body {
+padding:24px;
+text-align:center;
+}
+.link-text {
+padding:14px;
+background:#f3eaff;
+border-radius:8px;
+color:#b726d8;
+font-weight:bold;
+word-break:break-all;
+user-select:all;
+font-size:16px;
+}
 .sponsor-box {
     position: absolute;
     z-index: 3;
@@ -347,7 +485,6 @@ font-size: 16px;
 .sponsor-btn:hover {
     opacity:0.85;
 }
-/* ========== 赞助弹窗：两个独立弹窗 ========== */
 .sponsor-modal {
     display: none;
     position: fixed;
@@ -384,13 +521,21 @@ font-size: 16px;
     color:#fff;
     cursor:pointer;
 }
-/* 移动端适配 */
 @media (max-width: 768px) {
 .banner {
 height: 380px;
 }
 .banner h1 {
 font-size: 26px;
+}
+.group-btn-wrap {
+margin-top:12px;
+margin-bottom:0;
+gap:10px;
+}
+.group-btn {
+padding:10px 18px;
+font-size:14px;
 }
 .search-box input {
 padding: 12px 16px;
@@ -412,7 +557,6 @@ font-size: 17px;
 padding: 12px;
 font-size:15px;
 }
-    /*手机端赞助盒子移到banner顶部居中 */
     .sponsor-box {
         position:absolute;
         left:50%;
@@ -455,7 +599,6 @@ font-size:15px;
 </head>
 <body>
 <div class="banner">
-    <!-- 赞助模块：absolute定位，banner内部右上角，不fixed悬浮 -->
     <div class="sponsor-box">
         <div class="sponsor-avatar">
             <img src="img/tx/01.jpg" alt="头像">
@@ -468,13 +611,73 @@ font-size:15px;
     </div>
 <div class="banner-content">
 <h1>Game及时雨游戏库</h1>
+<div class="group-btn-wrap">
+    <button class="group-btn" onclick="openGroupModal()">Game及时雨游戏QQ讨论群</button>
+    <button class="group-btn" onclick="openLinkModal()">网页没有的游戏点这里</button>
+</div>
 <div class="search-box">
 <input id="searchInput" type="text" placeholder="输入游戏名称搜索...">
 <button id="searchBtn">搜索</button>
 </div>
 </div>
 </div>
-<!-- =========微信赞助弹窗 ========= -->
+<div class="group-mask" id="groupMask">
+    <div class="group-modal">
+        <div class="group-modal-head">
+            <h3>游戏讨论群</h3>
+            <button class="group-close" onclick="closeGroupModal()">×</button>
+        </div>
+        <div class="group-modal-body">
+            <div class="group-top-tip">那个能进就进哪个【最好是进最新的群】</div>
+            <div class="group-top-tip">点击就能显示群号</div>
+            <!-- 你在这里新增/修改群条目，name是群名，num是群号 -->
+            <div class="group-item" data-num="1131811981">
+                <div>Game及时雨36群</div>
+                <div class="group-number"></div>
+            </div>
+            <div class="group-item" data-num="1102968894">
+                <div>Game及时雨35群</div>
+                <div class="group-number"></div>
+            </div>
+            <div class="group-item" data-num="1023912865">
+                <div>Game及时雨34群</div>
+                <div class="group-number"></div>
+            </div>
+            <div class="group-item" data-num="226332638">
+                <div>Game及时雨33群</div>
+                <div class="group-number"></div>
+            </div>
+            <div class="group-item" data-num="982221920">
+                <div>Game及时雨32群</div>
+                <div class="group-number"></div>
+            </div>
+            <div class="group-item" data-num="662847592">
+                <div>Game及时雨31群</div>
+                <div class="group-number"></div>
+            </div>
+            <div class="group-item" data-num="1044365448">
+                <div>Game及时雨30群</div>
+                <div class="group-number"></div>
+            </div>
+            <div class="group-item" data-num="663233516">
+                <div>Game及时雨29群</div>
+                <div class="group-number"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 外链弹窗 -->
+<div class="link-mask" id="linkMask">
+    <div class="link-modal">
+        <div class="link-modal-head">
+            <h3>网页没有的游戏</h3>
+            <button class="link-close" onclick="closeLinkModal()">×</button>
+        </div>
+        <div class="link-modal-body">
+            <div class="link-text" id="showUrl"></div>
+        </div>
+    </div>
+</div>
 <div class="sponsor-modal" id="wxModal">
     <div class="sponsor-modal-box">
         <h4>微信扫码赞助</h4>
@@ -483,7 +686,6 @@ font-size:15px;
         <button class="sponsor-modal-close" onclick="closeWx()">关闭</button>
     </div>
 </div>
-<!-- =========支付宝赞助弹窗 ========= -->
 <div class="sponsor-modal" id="zfbModal">
     <div class="sponsor-modal-box">
         <h4>支付宝扫码赞助</h4>
@@ -492,6 +694,76 @@ font-size:15px;
         <button class="sponsor-modal-close" onclick="closeZfb()">关闭</button>
     </div>
 </div>
+<script>
+// 在这里填写你的网址
+const targetUrl = "https://pan.xunlei.com/s/VP65jFKrLv5644jOWi9Nx8roA1# 提取码：kw39";
+
+const groupMask = document.getElementById('groupMask');
+function openGroupModal(){
+    groupMask.style.display='flex';
+}
+function closeGroupModal(){
+    groupMask.style.display='none';
+}
+groupMask.onclick = function(e){
+    if(e.target === groupMask) closeGroupModal();
+}
+const groupItems = document.querySelectorAll('.group-item');
+groupItems.forEach(item=>{
+    const num = item.dataset.num;
+    const numDom = item.querySelector('.group-number');
+    item.addEventListener('click',()=>{
+        numDom.textContent = num;
+    })
+    let pressTimer;
+    item.addEventListener('touchstart',()=>{
+        pressTimer = setTimeout(()=>{
+            if(num){
+                navigator.clipboard.writeText(num).then(()=>{
+                    alert('群号已复制！');
+                }).catch(()=>{
+                    alert('复制失败，请手动选中号码复制');
+                })
+            }
+        },600)
+    })
+    item.addEventListener('touchend',()=>{
+        clearTimeout(pressTimer);
+    })
+    item.addEventListener('touchcancel',()=>{
+        clearTimeout(pressTimer);
+    })
+})
+
+// 外链弹窗逻辑
+const linkMask = document.getElementById('linkMask');
+const showUrlDom = document.getElementById('showUrl');
+function openLinkModal(){
+    showUrlDom.textContent = targetUrl;
+    linkMask.style.display='flex';
+}
+function closeLinkModal(){
+    linkMask.style.display='none';
+}
+linkMask.onclick = function(e){
+    if(e.target === linkMask) closeLinkModal();
+}
+
+function openWx(){
+    document.getElementById('wxModal').style.display='flex';
+}
+function closeWx(){
+    document.getElementById('wxModal').style.display='none';
+}
+function openZfb(){
+    document.getElementById('zfbModal').style.display='flex';
+}
+function closeZfb(){
+    document.getElementById('zfbModal').style.display='none';
+}
+</script>
+</body>
+</html>
 <!-- 搜索弹窗 -->
 <div class="search-mask" id="searchMask">
 <div class="search-modal">
