@@ -1,65 +1,59 @@
+<!-- projectzomboid.html｜僵尸毁灭工程 -->
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>僵尸毁灭工程 - Gaem及时雨游戏库</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: system-ui, -apple-system, sans-serif; }
-        body { background-color: #141418; color: #e8e8e8; line-height: 1.65; }
-        .container { max-width: 920px; margin: 0 auto; padding: 30px 20px; }
-        .back-btn { display: inline-block; color: #b726d8; text-decoration: none; margin-bottom: 24px; }
-        .back-btn:hover { text-decoration: underline; }
-        .download-area { display: flex; gap: 16px; margin: 0 0 30px; flex-wrap: wrap; }
-        .download-btn { flex: 1; min-width: 180px; padding: 16px; border: none; border-radius: 9px; font-size: 16px; font-weight: bold; cursor: pointer; transition: 0.2s; }
-        .baidu { background: #2874ff; color: white; }
-        .quark { background: #ff7922; color: white; }
-        .download-btn:hover { opacity: 0.88; }
-        .download-tip { width: 100%; color: #aaa; font-size: 14px; }
-        .top-banner { width: 100%; border-radius: 10px; overflow: hidden; margin-bottom: 26px; }
-        .top-banner img { width: 100%; display: block; object-fit: cover; }
-        h1 { font-size: 24px; margin-bottom: 12px; }
-        .tag-line { color: #aaa; margin-bottom: 24px; }
-        .mask { position: fixed; inset: 0; background: rgba(0,0,0,0.75); display: none; align-items: center; justify-content: center; z-index: 999; }
-        .popup-box { background: #1c1c22; padding: 26px; border-radius: 12px; text-align: center; max-width: 340px; width: 90%; }
-        .popup-box h4 { margin-bottom: 16px; font-size: 18px; }
-        .popup-box img { width: 240px; border-radius: 8px; margin-bottom: 18px; }
-        .close-pop { padding: 9px 24px; border: none; border-radius: 6px; background: #444; color: #fff; cursor: pointer; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>僵尸毁灭工程 中文版 - 游戏下载</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui,sans-serif}
+body{background:#141418;color:#eee;line-height:1.6;padding:16px}
+.container{max-width:900px;margin:0 auto}
+.back{display:inline-block;margin-bottom:16px;color:#58a6ff;text-decoration:none}
+.cover{width:100%;border-radius:10px;margin-bottom:20px}
+h1{font-size:26px;margin-bottom:12px}
+.info-block{background:#1e1e26;padding:18px;border-radius:10px;margin:16px 0}
+.info-block p{margin:8px 0;color:#ccc}
+.download-box{display:flex;gap:12px;margin-top:20px;flex-wrap:wrap}
+.dl-btn{padding:14px 24px;border:none;border-radius:8px;font-size:16px;cursor:pointer}
+.baidu{background:#2970d9;color:#fff}
+.quark{background:#f68220;color:#fff}
+.modal{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);display:none;align-items:center;justify-content:center;z-index:999}
+.modal.show{display:flex}
+.modal-inner{background:#222;padding:24px;border-radius:12px;text-align:center}
+.modal-inner img{width:260px;border-radius:8px}
+.close{margin-top:14px;padding:8px 18px;border:none;border-radius:6px;cursor:pointer;background:#444;color:#fff}
+</style>
 </head>
 <body>
 <div class="container">
-    <a href="hot.html" class="back-btn">← 返回热门游戏列表</a>
-    <div class="download-area">
-        <button class="download-btn baidu" onclick="showPopup('baidu')">百度网盘下载</button>
-        <button class="download-btn quark" onclick="showPopup('quark')">夸克网盘下载</button>
-        <div class="download-tip">点击按钮弹出对应网盘二维码，扫码获取资源链接</div>
-    </div>
-    <h1>僵尸毁灭工程 v42.19.0 中文版</h1>
-    <div class="tag-line">类型：硬核僵尸生存</div>
-    <div class="top-banner">
-        <img src="img/hot/32.jpg" alt="僵尸毁灭工程">
-    </div>
+<a href="newgame.html" class="back">← 返回列表</a>
+<img class="cover" src="img/newgame/1363.jpg" alt="僵尸毁灭工程">
+<h1>僵尸毁灭工程</h1>
+<div class="info-block">
+<p>📅 入库时间：11.14 日入库</p>
+<p>🎮 游戏类型：僵尸末日 / 硬核生存</p>
+<p>📦 版本：v42.22.2 中文联机版</p>
+<p>简介：高自由度僵尸末日生存，在僵尸横行的城镇搜集物资，搭建庇护所，处理饥饿、伤病、抑郁等状态，没有奇迹，活下去就是唯一目标。</p>
 </div>
-<div class="mask" id="mask">
-    <div class="popup-box">
-        <h4 id="pop-title">网盘二维码</h4>
-        <img id="pop-qrcode" src="" alt="二维码">
-        <br>
-        <button class="close-pop" onclick="closePopup()">关闭</button>
-    </div>
+<div class="download-box">
+<button class="dl-btn baidu" onclick="openModal('img/projectzomboid/baidu_qr.jpg')">百度网盘 提取码：qmt5</button>
+<button class="dl-btn quark" onclick="openModal('img/projectzomboid/quark_qr.jpg')">夸克网盘 </button>
+</div>
+</div>
+<div class="modal" id="qrModal">
+<div class="modal-inner">
+<img id="qrImg" src="" alt="二维码">
+<br>
+<button class="close" onclick="closeModal()">关闭</button>
+</div>
 </div>
 <script>
-const mask = document.getElementById('mask');
-const popTitle = document.getElementById('pop-title');
-const popImg = document.getElementById('pop-qrcode');
-function showPopup(type) {
-    if (type === 'baidu') { popTitle.innerText = "微信扫码！微信扫码！"; popImg.src = "img/projectzomboid/baidu_qr.jpg"; }
-    else if (type === 'quark') { popTitle.innerText = "微信扫码！微信扫码！"; popImg.src = "img/projectzomboid/quark_qr.jpg"; }
-    mask.style.display = 'flex';
-}
-function closePopup() { mask.style.display = 'none'; }
-mask.addEventListener('click', function(e) { if (e.target === mask) closePopup(); });
+const modal=document.getElementById('qrModal');
+const qrImg=document.getElementById('qrImg');
+function openModal(src){qrImg.src=src;modal.classList.add('show')}
+function closeModal(){modal.classList.remove('show')}
+modal.onclick=e=>{if(e.target===modal)closeModal()}
 </script>
 </body>
 </html>
