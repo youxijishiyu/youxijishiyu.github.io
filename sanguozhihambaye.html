@@ -1,0 +1,59 @@
+<!-- sanguozhihambaye.html｜三国志汉末霸业 -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>三国志汉末霸业 中文版 - 游戏下载</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui,sans-serif}
+body{background:#141418;color:#eee;line-height:1.6;padding:16px}
+.container{max-width:900px;margin:0 auto}
+.back{display:inline-block;margin-bottom:16px;color:#58a6ff;text-decoration:none}
+.cover{width:100%;border-radius:10px;margin-bottom:20px}
+h1{font-size:26px;margin-bottom:12px}
+.info-block{background:#1e1e26;padding:18px;border-radius:10px;margin:16px 0}
+.info-block p{margin:8px 0;color:#ccc}
+.download-box{display:flex;gap:12px;margin-top:20px;flex-wrap:wrap}
+.dl-btn{padding:14px 24px;border:none;border-radius:8px;font-size:16px;cursor:pointer}
+.baidu{background:#2970d9;color:#fff}
+.quark{background:#f68220;color:#fff}
+.modal{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);display:none;align-items:center;justify-content:center;z-index:999}
+.modal.show{display:flex}
+.modal-inner{background:#222;padding:24px;border-radius:12px;text-align:center}
+.modal-inner img{width:260px;border-radius:8px}
+.close{margin-top:14px;padding:8px 18px;border:none;border-radius:6px;cursor:pointer;background:#444;color:#fff}
+</style>
+</head>
+<body>
+<div class="container">
+<a href="newgame.html" class="back">← 返回列表</a>
+<img class="cover" src="img/newgame/1470.jpg" alt="三国志汉末霸业">
+<h1>三国志汉末霸业</h1>
+<div class="info-block">
+<p>📅 入库时间：11.22 日入库</p>
+<p>🎮 游戏类型：三国策略 / 回合制经营</p>
+<p>📦 版本：v1.1.16.4102 豪华中文版 全DLC 新增大明：远洋宏图DLC</p>
+<p>简介：《三国志:汉末霸业》是一款君主扮演路线的单机回合制策略游戏。而我们所营造的三国世界，深度刻画了三国各城市之间地域的差异以及每个武将自身能力和特性的异同，而在战斗方面突出结合天时地利人和的调配来进行策略作战的特色。力求呈现给玩家一个具有中国人的新思维和新角度的不一样的三国游戏体验！</p>
+</div>
+<div class="download-box">
+<button class="dl-btn baidu" onclick="openModal('img/sanguozhihambaye/baidu_qr.jpg')">百度网盘 提取码：zm7y</button>
+<button class="dl-btn quark" onclick="openModal('img/sanguozhihambaye/quark_qr.jpg')">夸克网盘 </button>
+</div>
+</div>
+<div class="modal" id="qrModal">
+<div class="modal-inner">
+<img id="qrImg" src="" alt="二维码">
+<br>
+<button class="close" onclick="closeModal()">关闭</button>
+</div>
+</div>
+<script>
+const modal=document.getElementById('qrModal');
+const qrImg=document.getElementById('qrImg');
+function openModal(src){qrImg.src=src;modal.classList.add('show')}
+function closeModal(){modal.classList.remove('show')}
+modal.onclick=e=>{if(e.target===modal)closeModal()}
+</script>
+</body>
+</html>
